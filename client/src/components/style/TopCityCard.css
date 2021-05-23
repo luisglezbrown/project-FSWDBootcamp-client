@@ -1,0 +1,27 @@
+.city-card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 23%;
+    height: auto;
+    margin-bottom: 2rem;
+    background-color: #999999;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #4D4D4D;   
+}
+
+.city-card-img {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+a .city-card-name {
+    font: bold 1.2rem 'Exo', sans-serif;
+    padding-right: 2rem;
+    width: 100%;
+    text-align: right;
+    color: whitesmoke;
+    text-shadow: 2px 2px 3px #4D4D4D;
+}
