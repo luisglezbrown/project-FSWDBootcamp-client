@@ -38,7 +38,7 @@ export default function TopDestinations() {
     return (
         <section className='section-container'>
             <header className='header-container'>
-                <h1>Destinos destacados</h1>
+                <h1>Los destinos más buscados</h1>
                 <Link to='/all_cities' className="see-more">ver todos</Link>
             </header>
             <div className='cards-container'>
