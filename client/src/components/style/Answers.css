@@ -1,0 +1,12 @@
+.answers-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 600px;
+    padding: 0 10%;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 1.5rem;
+    color: #4d4d4d;
+}

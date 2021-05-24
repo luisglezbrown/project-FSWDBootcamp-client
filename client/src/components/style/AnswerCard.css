@@ -1,0 +1,25 @@
+.answer-card {
+    width: 30%;
+    min-width: 200px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.answer-card img {
+    margin: 1.5rem;
+}
+
+.answer-card h1 {
+    color: #4d4d4d;
+    text-shadow: 2px 2px 1px #999;
+    margin: 1rem;
+    height: 10%;
+}
+
+.answer-card p {
+    color: #4d4d4d;
+    font-family: 'Exo';
+    font-size: 1.1rem;
+    word-spacing: 2px;
+    text-align: justify;
+}
