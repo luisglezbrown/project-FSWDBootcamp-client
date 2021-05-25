@@ -26,8 +26,9 @@
 }
 
 .become-text h1{
-    font: 2rem 'Fredoka One', sans-serif;
+    font: 3rem 'Fredoka One', sans-serif;
     color: #ffcc00;
+    margin: 0;
     text-shadow: 2px 2px 2px #4d4d4d;
 }
 
