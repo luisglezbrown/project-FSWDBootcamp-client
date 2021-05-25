@@ -7,14 +7,13 @@
     background-color: #999999;
     text-decoration: none;
     border-radius: 10px;
-    box-shadow: 2px 2px 3px #4D4D4D;   
+    box-shadow: 2px 2px 3px #4D4D4D;  
+    overflow: hidden; 
 }
 
 .city-card-img {
     width: 100%;
     height: auto;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
 
 a .city-card-name {

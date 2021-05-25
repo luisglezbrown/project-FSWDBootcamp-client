@@ -1,4 +1,4 @@
-.section-container {
+.guides-section-container {
     box-sizing: border-box;
     width: 80%;
     margin: 3.5rem 10%;
@@ -8,23 +8,16 @@
 /*     text-shadow: 1px 1px 1px #4D4D4D;
  */}
 
-.cards-container,
-.header-container {
+.guides-cards-container,
+.guides-header-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: stretch;
     flex-wrap: wrap;
     margin-bottom: 2rem;
 }
 
-.header-container {
+.guides-header-container {
     border-bottom: 2px solid #FFCC00;
-}
-
-.see-more {
-    color: #FFCC00;
-    font-size: 29px;
-    text-decoration: none;
-    text-shadow: 1px 1px 1px #4D4D4D;
 }

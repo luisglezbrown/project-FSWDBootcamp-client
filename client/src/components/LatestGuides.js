@@ -23,11 +23,11 @@ export default function LatestGuides() {
     let guides = API_LATEST_GUIDES.results;
 
     return (
-        <section className='section-container'>
-            <header className='header-container'>
+        <section className='guides-section-container'>
+            <header className='guides-header-container'>
                 <h1>LocalZ recién llegados</h1>
             </header>
-            <div className='cards-container'>
+            <div className='guides-cards-container'>
                 {guides.map(guide => <LastGuideCard guide={guide} key={guide.id}/>)}
             </div>
         </section>

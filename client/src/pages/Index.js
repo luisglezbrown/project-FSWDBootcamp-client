@@ -1,4 +1,5 @@
 import Answers from "../components/Answers";
+import BecomeAGuide from "../components/BecomeAGuide";
 import HeroImage from "../components/HeroImage";
 import LatestGuides from "../components/LatestGuides";
 import Navbar from '../components/Navbar';
@@ -12,7 +13,7 @@ export default function Index() {
             <TopDestinations />
             <Answers />
             <LatestGuides />
-
+            <BecomeAGuide />
         </>
     )
 }
