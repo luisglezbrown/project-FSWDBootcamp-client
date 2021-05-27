@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import './style/TopCityCard.css'
+import './style/CityCard.css'
 
 export default function TopCityCard({ city }) {
     const IMG_URL = "/images/cities/card-";
