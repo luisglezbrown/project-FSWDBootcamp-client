@@ -4,7 +4,7 @@ import Index from './pages/Index';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import GuideRegister from './pages/GuideRegister';
-import AllDestinations from './pages/AllDestinations';
+import AllCities from "./pages/AllCities";
 
 export default function Router() {
     return (
@@ -15,7 +15,7 @@ export default function Router() {
                     <Route path='/login' component={Login}/>
                     <Route path='/newuser' component={Register}/>
                     <Route path='/newguide' component={GuideRegister}/>
-                    <Route path='/all_cities' component={AllDestinations}/>
+                    <Route path='/all_cities' component={AllCities}/>
 
                     {/*<Route path='/dashboard' component={Dashboard}/>
                     <Route path='/record/:user' component={Record}/>*/}

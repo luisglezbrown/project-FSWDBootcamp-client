@@ -8,7 +8,7 @@ export default function BecomeAGuide() {
             <div className="become-text">
                 <h1>¿Tu city mola?</h1>
                 <p> Obtén money extra enseñando los encantos de tu ciudad mientras conoces a people de todo el mundo </p>
-                <Link>¡Hazte localz!</Link>
+                <Link to='/newguide'>¡Hazte localz!</Link>
             </div>
         </div>
     )

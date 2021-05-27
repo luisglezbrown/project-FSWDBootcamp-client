@@ -11,14 +11,14 @@ export default function TopDestinations() {
     const API_TOP_CITIES = {
         total: 15,
         results: [
-            {id: 1, name: "París", country: "Francia", top: true},
-            {id: 2, name: "New York", country: "Estados Unidos", top: true},
-            {id: 6, name: "Rio de Janeiro", country: "Brasil", top: true},
-            {id: 7, name: "Abu Dhabi", country: "Emiratos Árabes", top: true},
-            {id: 9, name: "Roma", country: "Italia", top: true},
-            {id: 10, name: "Atenas", country: "Grecia", top: true},
-            {id: 13, name: "San Petersburgo", country: "Rusia", top: true},
-            {id: 14, name: "San Francisco", country: "Estados Unidos", top: true},
+            {id: 1, name: "París", country: "Francia"},
+            {id: 2, name: "New York", country: "Estados Unidos"},
+            {id: 3, name: "Barcelona", country: "España"},
+            {id: 15, name: "Cartagena de Indias", country: "Colombia"},
+            {id: 16, name: "Tokio", country: "Japón"},
+            {id: 5, name: "Londres", country: "Reino Unido"},
+            {id: 6, name: "Rio de Janeiro", country: "Brasil"},
+            {id: 7, name: "Abu Dhabi", country: "Emiratos Árabes"},
         ]
     };
 

@@ -3,7 +3,6 @@
     background: url(../../images/hero-image-bg2.jpg) no-repeat 30%/cover;
     /*background-position: 40% para el fondo naranja */
     box-shadow: 2px 0 5px #4D4D4D;
-    margin-top: 65px;
     position: relative;
     display: flex;
     align-items: center;

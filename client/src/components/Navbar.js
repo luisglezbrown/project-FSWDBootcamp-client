@@ -10,7 +10,7 @@ export default function Navbar() {
         <nav>
             <Link to='/'><img src={logo2} alt="logo" className="logo"/></Link>
             <div className='button-container'>
-                <Link to='/register' className="btn register"> registro</Link>
+                <Link to='/newuser' className="btn register"> registro</Link>
                 <Link to='/login' className="btn login"> acceso</Link>
             </div>
         </nav>

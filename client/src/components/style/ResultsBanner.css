@@ -1,18 +1,20 @@
 .banner-container {
     display: flex;
-    background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(255,204,0,0) 100%), url("../../images/results_banner_bg.jpg");
+    background-image: linear-gradient(120deg, #d4d4d4 0%, rgba(255,255,255,1) 50%, rgba(255,204,0,0) 100%), url("../../images/results_banner_bg.jpg");
     background-position: center right;
     background-size: auto;
-    width: 80%;
+    background-repeat: no-repeat;
+    width: 100%;
     margin: auto;
     padding: 3rem 0;
     overflow: hidden;
-    border-bottom: 2px solid #ffcc00;
-}
+/*     border-bottom: 2px solid #ffcc00;
+ */}
 
 .banner-text {
     width: 60%;
     text-align: left;
+    padding-left: 10%;
 }
 
 .banner-text h1{
@@ -24,15 +26,16 @@
 
 .banner-text p{
     font: bold 1rem 'Exo', sans-serif;
-    color: #999;
-    text-shadow: 1px 1px 1px #4d4d4d;
+    color: #4d4d4d;
+    text-shadow: 1px 1px 1px #dadada;
     text-transform: uppercase;
-
     letter-spacing: 1px;
 }
 
 .banner-image {
     background-position: 30% 20%;
     background-size: cover;
-    width: 40%;
+    width: 50%;
 }
+
+
