@@ -1,0 +1,38 @@
+.banner-container {
+    display: flex;
+    background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(255,204,0,0) 100%), url("../../images/results_banner_bg.jpg");
+    background-position: center right;
+    background-size: auto;
+    width: 80%;
+    margin: auto;
+    padding: 3rem 0;
+    overflow: hidden;
+    border-bottom: 2px solid #ffcc00;
+}
+
+.banner-text {
+    width: 60%;
+    text-align: left;
+}
+
+.banner-text h1{
+    font: 3rem 'Fredoka One', sans-serif;
+    color: #ffcc00;
+    margin: 0;
+    text-shadow: 2px 2px 2px #4d4d4d;
+}
+
+.banner-text p{
+    font: bold 1rem 'Exo', sans-serif;
+    color: #999;
+    text-shadow: 1px 1px 1px #4d4d4d;
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.banner-image {
+    background-position: 30% 20%;
+    background-size: cover;
+    width: 40%;
+}
