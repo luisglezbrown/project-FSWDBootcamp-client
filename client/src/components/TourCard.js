@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './style/TourCard.css'
 
 export default function TourCard({ tour }) {
-    const IMG_URL = `/images/cities/card-15.png`;
+    const IMG_URL = `/images/tours/${tour.imgpath}`;
     const INLINE_STYLE = {backgroundImage: `linear-gradient(270deg, #fafafa 0%, rgba(255,204,0,0) 10%), url(${IMG_URL})`};
 
     return (
@@ -20,5 +20,28 @@ export default function TourCard({ tour }) {
                 <Link to='/newguide' className='book-btn'>reservar</Link>
             </div>
         </div>
+
     )
 }
+/* 
+"fototour1"
+"fototour2"
+"fototour3"
+"fototour4"
+"fototour5"
+"fototour6"
+"fototour7"
+"fototour8"
+"fototour9"
+"fototour10"
+"fototour11"
+"fototour12"
+"fototour13"
+"fototour14"
+"fototour15"
+"fototour16"
+"fototour17"
+"fototour18"
+"fototour19"
+"fototour20" 
+*/
