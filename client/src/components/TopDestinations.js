@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import CityCardsGenerator from './CityCardsGenerator';
+import CityCard from './CityCard';
 
 import './style/TopDestinations.css'
 
@@ -32,9 +32,11 @@ export default function TopDestinations() {
         <section className='section-container'>
             <header className='header-container'>
                 <h1>Los destinos más buscados</h1>
-                <Link to='/all_cities' className="see-more">ver todos</Link>
+                <Link to='/allCities' className="see-more">ver todos</Link>
             </header>
-            <CityCardsGenerator data={cities} />
+            <div className='cards-container'>
+                {cities.map(city => <CityCard city={city} key={city.id}/>)}
+            </div>
         </section>
     )
 }

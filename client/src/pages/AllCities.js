@@ -1,10 +1,9 @@
 import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
-import CityCardsGenerator from "../components/CityCardsGenerator";
+import CityCard from "../components/CityCard";
 
 export default function AllCities() {
-    const HEADER_CONTENT = `Descubre todas las ciudades...`;
-    const TEXT_CONTENT = 'Cientos de localz te esperan en ellas para que no pierdas detalle';
+
 
     const API_CITIES = {
         total: 15,
@@ -29,18 +28,23 @@ export default function AllCities() {
     };
 
     /*     useEffect(() => {
-        // TODO: fetch a mi endpoint "all_cities"
+        // TODO: fetch a mi endpoint "allCities"
     }, []) */
 
     let cities = API_CITIES.results;
 
+    const HEADER_CONTENT = `Descubre todas las ciudades...`;
+    const TEXT_CONTENT = 'Cientos de localz te esperan en ellas para que no pierdas detalle';
+
     return (
         <>
             <Navbar />
-            <ResultsBanner header={HEADER_CONTENT} text={TEXT_CONTENT}/>
+            <ResultsBanner header={HEADER_CONTENT} text={TEXT_CONTENT} />
 
             <div className='section-container'>
-                <CityCardsGenerator data={cities} />
+                <div className='cards-container'>
+                    {cities.map(city => <CityCard city={city} key={city.id}/>)}
+                </div>
             </div>
         </>
     )
