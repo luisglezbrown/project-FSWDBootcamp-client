@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import GuideRegister from './pages/GuideRegister';
 import AllCities from "./pages/AllCities";
 import City from "./pages/City";
+import Guide from "./pages/Guide";
+import Tour from "./pages/Tour";
 
 
 export default function Router() {
@@ -18,7 +20,9 @@ export default function Router() {
                     <Route path='/newuser' component={Register} />
                     <Route path='/newguide' component={GuideRegister} />
                     <Route path='/allCities' component={AllCities} />
-                    <Route path='/city'component={City} />
+                    <Route path='/city/:cityId'component={City} />
+                    <Route path='/guide/:guideId'component={Guide} />
+                    <Route path='/tour/:tourId'component={Tour} />
 
                     {/*<Route path='/dashboard' component={Dashboard}/>
                     <Route path='/record/:user' component={Record}/>*/}
