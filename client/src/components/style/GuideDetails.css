@@ -1,0 +1,48 @@
+.guide-details-container {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    font-family: 'Exo', sans-serif;
+    font-size: 1.2rem;
+    color: #4d4d4d;
+    text-align: justify;
+    margin-top: 100px;
+}
+
+.guide-details-text {
+    width: 60%;
+    padding-right: 5%;
+    border-right: 1rem dotted #dadada;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+}
+
+.guide-details-text h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 3rem;
+    color: #ffcc00;
+    text-shadow: 1px 1px 1px #4d4d4d;
+    margin-bottom: 1rem;
+}
+
+.city-label {
+    background-color: #999;
+    color: white;
+    font: normal 1rem 'Exo';
+    padding: 0 1.5rem;
+    border-radius: 10px;
+}
+
+.about-label {
+    color: #4d4d4d;
+    font-weight: bold;
+}
+
+.guide-image {
+    width: 30%;
+    height: 100%;
+    margin-left: 5%;
+    margin-top: 2rem;
+    border-radius: 50%;
+    box-shadow: 1rem 1rem 0 #999;
+}
