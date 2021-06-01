@@ -28,7 +28,7 @@
     background-color: #fafafa;
     width: 70%;
     text-align: left;
-    padding: 1rem;
+    padding: 1rem 2rem;
 }
 
 .tour-text h1{
@@ -45,7 +45,7 @@
 }
 
 .book-btn{
-    font-size: 1rem;
+    font: bold 1rem 'Exo', sans-serif;
     text-decoration: none;
     background-color: #FFCC00;
     padding: 0.5rem 2rem;

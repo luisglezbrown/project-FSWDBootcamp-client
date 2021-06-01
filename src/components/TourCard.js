@@ -17,31 +17,9 @@ export default function TourCard({ tour }) {
                 <span>⏱ {tour.duration} horas</span>
                 <Link to={`/guide/${tour.guideId}`} className='guide-btn'>🗣 {tour.guideName}</Link>  
                 <p>{tour.highlight}</p>
-                <Link to='/newguide' className='book-btn'>reservar</Link>
+                <Link to={`/tour/${tour.id}`} className='book-btn'>reservar</Link>
             </div>
         </div>
 
     )
 }
-/* 
-"fototour1"
-"fototour2"
-"fototour3"
-"fototour4"
-"fototour5"
-"fototour6"
-"fototour7"
-"fototour8"
-"fototour9"
-"fototour10"
-"fototour11"
-"fototour12"
-"fototour13"
-"fototour14"
-"fototour15"
-"fototour16"
-"fototour17"
-"fototour18"
-"fototour19"
-"fototour20" 
-*/
