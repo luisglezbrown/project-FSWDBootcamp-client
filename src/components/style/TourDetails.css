@@ -1,0 +1,96 @@
+.tourDetails-container {
+    box-sizing: border-box;
+    display: flex;
+    width: 80%;
+    font-family: 'Exo', sans-serif;
+    font-size: large;
+    color: #4d4d4d;
+    text-align: justify;
+    margin: auto;
+}
+
+.tourDetails-left {
+    width: 60%;
+    padding-right: 5%;
+    border-right: 1rem dotted #dadada;
+}
+
+.tourDetails-right {
+    width: 30%;
+    margin-left: 5%;
+    margin-top: 2rem;
+}
+
+
+.tourDetails-left h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 3rem;
+    color: #ffcc00;
+    text-shadow: 1px 1px 1px #4d4d4d;
+    margin: 1rem 0;
+}
+
+.grey-label {
+    background-color: #999;
+    color: white;
+    font: normal 1rem 'Exo';
+    padding: 0 1.5rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+}
+
+.about-label {
+    font-family: 'Fredoka One';
+    font-size: larger;
+    color: #ffcc00;
+    text-shadow: 1px 1px 1px #4d4d4d;
+    font-weight: bold;
+    display: block;
+    text-transform: uppercase;
+    font-size: medium;
+    letter-spacing: 2px;
+}
+
+.meeting-details-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 2rem auto;
+
+}
+
+.details,
+.tour-description,
+.localz-details {
+    box-sizing: border-box;
+    width: 31%;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 4px #999;
+    margin-bottom: 2rem;
+}
+
+a.localz-details {
+    text-decoration: none;
+    text-align: center;
+}
+
+.tour-description {
+    width: 100%;
+}
+
+.tourDetails-left img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 1px #999;
+}
+
+img.guide-picture {
+    width: 5rem;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    box-shadow: 3px 3px #ffcc00;
+}
