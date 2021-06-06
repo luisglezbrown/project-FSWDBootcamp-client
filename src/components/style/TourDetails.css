@@ -13,12 +13,15 @@
     width: 60%;
     padding-right: 5%;
     border-right: 1rem dotted #dadada;
+    
 }
 
 .tourDetails-right {
     width: 30%;
     margin-left: 5%;
-    margin-top: 2rem;
+    position: sticky;
+    top: 75px;
+    align-self: flex-start;
 }
 
 
@@ -78,6 +81,7 @@ a.localz-details {
 
 .tour-description {
     width: 100%;
+    margin-top: 3rem;
 }
 
 .tourDetails-left img {
