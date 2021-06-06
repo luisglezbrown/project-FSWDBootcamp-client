@@ -1,0 +1,64 @@
+.form-container {
+	box-sizing: border-box;
+	width: 100%;
+	background-color: whitesmoke;
+	border-radius: 1rem;
+	border: 10px dashed #ffcc00;
+	padding: 1rem 4rem;
+}
+
+form .submit-btn:hover, form .submit-btn:focus {
+	color: #fafafa;
+	background-color: #4d4d4d;
+	box-shadow: 3px 3px 0 #ffcc00;
+}
+
+form .form-group label {
+	color: #4d4d4d;
+	font-weight: bold;
+	font-size: 1rem;
+	padding: 10px 15px;
+	margin: 5px 0;
+	display: block;
+}
+
+form input {
+	background-color: none;
+	border: 1px solid #4d4d4d;
+	line-height: 0;
+	font-size: 17px;
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	padding: 10px 15px;
+	border-radius: 60px;
+	color: #999;
+	font-weight: 100;
+	letter-spacing: 0.01em;
+	position: relative;
+	z-index: 1;
+}
+
+
+form input:focus {
+	outline: none;
+	background: #ffcc00;
+	color: #4d4d4d;
+
+}
+
+form .submit-btn {
+	margin: 2rem auto;
+	width: 100%;
+	background-color: #ffcc00;
+	font-size: 1.2rem;
+	font-weight: bold;
+	box-sizing: border-box;
+	padding: 20px 15px;
+	border-radius: 10px;
+	color: #4d4d4d;
+	border: none;
+	box-shadow: 3px 3px 0 #4d4d4d;
+}
+
+/* TODO: Arreglar el estilo del input date para que no salga vacío */
