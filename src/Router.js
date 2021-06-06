@@ -20,9 +20,9 @@ export default function Router() {
                     <Route path='/newuser' component={Register} />
                     <Route path='/newguide' component={GuideRegister} />
                     <Route path='/allCities' component={AllCities} />
-                    <Route path='/city/:cityId'component={City} />
-                    <Route path='/guide/:guideId'component={Guide} />
-                    <Route path='/tour/:tourId'component={Tour} />
+                    <Route path='/city/:id'component={City} />
+                    <Route path='/guide/:id'component={Guide} />
+                    <Route path='/tour/:id'component={Tour} />
 
                     {/*<Route path='/dashboard' component={Dashboard}/>
                     <Route path='/record/:user' component={Record}/>*/}
