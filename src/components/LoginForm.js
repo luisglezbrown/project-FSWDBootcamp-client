@@ -1,15 +1,40 @@
-import React from 'react'
+import { useForm } from '../hooks/useForm';
+
 import './style/LoginForm.css'
 
 export default function LoginForm() {
+
+    const initialFormState = {email: "", password: ""};
+    const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        //TODO: Introducir la lógica del formulario.
+    };
+
     return (
-        <section className="">
-            <h1>¡Nos encanta volver a verte!</h1>
-            <form class="login-box">
-                <input type="text" placeholder="Email" />
-                <input type="password" placeholder="Contraseña" />
-                <button>Login</button>
-            </form>
+        <section className="login-container">
+            <div className="login-left">
+                <h1>¡Nos encanta volver a verte!</h1>
+                <p>Introduce tu email y contraseña para acceder al área privada</p>
+            </div>
+
+            <div className="login-right">
+                <form onSubmit={handleSubmit} className="form-container">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input onChange={handleInputChange} value={form.email} name="email" type="email" placeholder="usuario@tuemail.com" className="form-control" required/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Contraseña</label>
+                        <input onChange={handleInputChange} value={form.password} name="password" type="password" placeholder="******" className="form-control" required/>
+                    </div>
+
+                    <input type="submit" value="Iniciar sesión" className="submit-btn"/>
+
+                </form>
+            </div>
         </section>
     )
 }
