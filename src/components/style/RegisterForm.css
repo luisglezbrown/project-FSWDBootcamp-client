@@ -1,0 +1,43 @@
+.register-container {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Exo', sans-serif;
+    font-size: large;
+    text-align: center;
+    color: #4d4d4d;
+    background: rgb(255,255,255);
+    background: linear-gradient(190deg, #99999990 5%, #fafafa94 35%, #fff 100%); 
+    padding-top: 2rem;
+}
+
+.register-form-container {
+    text-align: left;
+    margin: 2rem auto 5rem;
+    width: 40%;
+}
+
+.register-form-container .form-group {
+    margin: 1rem auto 1rem;
+}
+
+.register-container h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 3rem;
+    color: #4d4d4d;
+    text-shadow: 3px 3px 3px #fafafa;
+    margin-top: 2rem;
+}
+
+fieldset {
+    display: block;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 1px solid #ffcc00;
+    border-radius: 1rem;
+}
+
+legend {
+    padding: 0 2rem;
+    color: #4d4d4d;
+    font-weight: bolder;
+}
