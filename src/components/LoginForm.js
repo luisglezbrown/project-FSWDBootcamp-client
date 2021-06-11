@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 import './style/LoginForm.css'
@@ -17,6 +18,8 @@ export default function LoginForm() {
             <div className="login-left">
                 <h1>¡Nos encanta volver a verte!</h1>
                 <p>Introduce tu email y contraseña para acceder al área privada</p>
+                <Link to='/newuser' className="secondary-action">¿No estás registrado? Crea una cuenta</Link>
+
             </div>
 
             <div className="login-right">

@@ -14,17 +14,23 @@
 
 
 .login-left {
-    width: 60%;
+    width: 50%;
 }
 
 .login-right {
     width: 40%;
-
+    margin-left: 10%;
 }
+
 .login-left h1 {
     font-family: 'Fredoka One', sans-serif;
     font-size: 3rem;
     color: #ffcc00;
     text-shadow: 1px 1px 1px #4d4d4d;
     margin: 1rem 0;
+}
+
+.secondary-action {
+    text-decoration: none;
+    color: #999;
 }
