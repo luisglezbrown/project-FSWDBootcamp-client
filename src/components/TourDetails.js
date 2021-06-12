@@ -3,8 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import AnswerCard from './AnswerCard';
 
-import { IMAGE_PATH_3 } from './AnswersSettings'
-
 import './style/TourDetails.css'
 
 export default function TourDetails({tour, guide}) {
@@ -14,6 +12,7 @@ export default function TourDetails({tour, guide}) {
     
     const QUESTION = "¿Cuánto cuesta?";
     const ANSWER = "Tu localz lo dará todo por mostrarte su ciudad y al final del tour eliges cuánto cuesta en función de tu experiencia. ¡Free viene de \"libre\", no de gratis! Eres libre de dar la propina que consideres a tu Localz";
+    const IMAGE_PATH = "/images/answers/answer3.png";
     
     return (
 
@@ -52,7 +51,7 @@ export default function TourDetails({tour, guide}) {
                     <h1>¡Asegura tu plaza!</h1>
                     <BookingForm booking={booking} setBooking={setBooking} tourId={tourId}/>
                 </div>
-                <AnswerCard question={QUESTION} answer={ANSWER} imgpath={IMAGE_PATH_3} style={{"width":"100%"}}/>
+                <AnswerCard question={QUESTION} answer={ANSWER} imgpath={IMAGE_PATH} style={{"width":"100%"}}/>
             </aside>
         </div>
     )
