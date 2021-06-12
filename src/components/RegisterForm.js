@@ -15,6 +15,8 @@ export default function RegisterForm() {
     return (
         <section className="register-container">
             <h1>Regístrate en Localz</h1>
+            <p>Únete a localz y reserva los mejores free-tours.</p>
+            <p>Si tecleas rápido y no piensas demasiado la contraseña te llevará menos de un minuto... ¡y es GRATIS!</p>
             <form onSubmit={handleSubmit} className="register-form-container">
                 <fieldset> 
                     <legend>Tus datos de acceso:</legend> 
