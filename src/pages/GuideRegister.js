@@ -1,6 +1,7 @@
 import Advantages from "../components/Advantages";
 import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
+import GuideRegisterForm from "../components/GuideRegisterForm"
 
 export default function GuideRegister() {
 
@@ -13,6 +14,7 @@ export default function GuideRegister() {
             <Navbar />
             <ResultsBanner header={HEADER_CONTENT} text={TEXT_CONTENT} />
             <Advantages />
+            <GuideRegisterForm />
         </>
     )
 }
