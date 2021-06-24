@@ -4,7 +4,7 @@ import './style/RegisterForm.css'
 
 export default function RegisterForm() {
 
-    const initialFormState = {email: "", password: "", name: "", surname: "", phone: ""};
+    const initialFormState = {email: "", password: "", name: "", surname: "", phone: "", role: "user"};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
 
     const handleSubmit = e => {
