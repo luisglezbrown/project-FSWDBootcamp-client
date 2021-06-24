@@ -1,0 +1,39 @@
+.guide-register-form-container {
+    box-sizing: border-box;
+    font-family: 'Exo', sans-serif;
+    font-size: large;
+    color: #4d4d4d;
+    margin: 3rem auto;
+    width: 80%;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.guide-register-form-container .form-group {
+    margin: 1rem auto 1rem;
+}
+
+fieldset {
+    display: block;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 1px solid #ffcc00;
+    border-radius: 1rem;
+}
+
+fieldset.w20 {
+    width: 20%;
+}
+
+fieldset.w40 {
+    width: 40%;
+}
+
+legend {
+    padding: 0 2rem;
+    color: #4d4d4d;
+    font-weight: bolder;
+    background-color: #ffcc00;
+    border-radius: 1rem;
+}
