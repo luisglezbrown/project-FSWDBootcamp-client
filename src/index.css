@@ -7,3 +7,56 @@ body {
   box-sizing: border-box;
 }
 
+.text {
+  color: #4d4d4d;
+  font-family: 'Exo';
+  font-size: 1.1rem;
+  word-spacing: 2px;
+}
+
+.header {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 3rem;
+  color: #ffcc00;
+  margin: 1rem 0;
+}
+
+.grey-shadow {
+  text-shadow: 1px 1px 1px #4d4d4d;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.h-90vh {
+  height: 90vh;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
