@@ -8,6 +8,7 @@ import AllCities from "./pages/AllCities";
 import City from "./pages/City";
 import Guide from "./pages/Guide";
 import Tour from "./pages/Tour";
+import AccountCreated from "./pages/AccountCreated";
 
 
 export default function Router() {
@@ -23,10 +24,11 @@ export default function Router() {
                     <Route path='/city/:id'component={City} />
                     <Route path='/guide/:id'component={Guide} />
                     <Route path='/tour/:id'component={Tour} />
+                    <Route path='/accountcreated' component={AccountCreated} />
 
                     {/*<Route path='/dashboard' component={Dashboard}/>
                     <Route path='/record/:user' component={Record}/>*/}
-                    {/*<Route component={Error}/>*/}            
+                    {/*<Route component={Error}/>*/} {/* TODO: Crear un componente de error */}           
                 </Switch>
             </BrowserRouter>
         </>
