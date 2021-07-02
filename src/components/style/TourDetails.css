@@ -6,7 +6,7 @@
     font-size: large;
     color: #4d4d4d;
     text-align: justify;
-    margin: auto;
+    margin: auto auto 3rem;
 }
 
 .tourDetails-left {

@@ -43,3 +43,19 @@ legend {
     background-color: #ffcc00;
     border-radius: 1rem;
 }
+
+
+form small {
+    display: block;
+    margin: 0 0 0.5rem 1rem;
+}
+
+.check input {
+    display: inline;
+    width: auto;
+}
+
+.check {
+    display: inline-block;
+    width: 20%;
+}
