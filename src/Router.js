@@ -9,6 +9,8 @@ import City from "./pages/City";
 import Guide from "./pages/Guide";
 import Tour from "./pages/Tour";
 import AccountCreated from "./pages/AccountCreated";
+import NewTour from "./pages/NewTour.js";
+
 
 
 export default function Router() {
@@ -25,6 +27,8 @@ export default function Router() {
                     <Route path='/guide/:id'component={Guide} />
                     <Route path='/tour/:id'component={Tour} />
                     <Route path='/accountcreated' component={AccountCreated} />
+                    <Route path='/newTour' component={NewTour} />
+
 
                     {/*<Route path='/dashboard' component={Dashboard}/>
                     <Route path='/record/:user' component={Record}/>*/}
