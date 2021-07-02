@@ -21,7 +21,7 @@ export default function AccountCreated() {
                         {
                             userRole === "user"
                             ? <Link to='/allCities' className="btn login">¡Explora!</Link>
-                            : <Link to='/create-a-tour' className="btn login">¡Crear un tour!</Link>
+                            : <Link to='/newTour' className="btn login">¡Crear un tour!</Link>
                         }
                     </div>
                 </div>
