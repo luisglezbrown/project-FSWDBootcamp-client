@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 
 export default function AllCities() {
 
-    const [cities, setCities] = useState([])
+    const [cities, setCities] = useState({})
 
     const API_CITIES = "http://127.0.0.1:8000/api/allcities";
     useEffect(() => {
         fetch(API_CITIES)
         .then(response => response.json())
-        .then(data => setCities(data.results))
+        .then(data => setCities(data))
     }, [])
 
     const HEADER_CONTENT = `Descubre todas las ciudades...`;
-    const TEXT_CONTENT = 'Cientos de localz te esperan en ellas para que no pierdas detalle';
+    const TEXT_CONTENT = `Cientos de localz te esperan en ${cities.total} ciudades para que no pierdas detalle`;
 
     return (
         <>
@@ -24,7 +24,7 @@ export default function AllCities() {
 
             <div className='section-container'>
                 <div className='cards-container'>
-                    {cities.map(city => <CityCard city={city} key={city.id}/>)}
+                    {cities.results?.map(city => <CityCard city={city} key={city.id}/>)}
                 </div>
             </div>
         </>
