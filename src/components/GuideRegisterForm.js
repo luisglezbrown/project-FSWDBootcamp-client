@@ -18,17 +18,17 @@ export default function GuideRegisterForm() {
                 <fieldset className="w20"> 
                     <legend>Tus datos de acceso:</legend> 
                     <div className="form-group">
-                        <label for="email" className="form-label">Email</label>
+                        <label htmlFor="email" className="form-label">Email</label>
                         <input onChange={handleInputChange} value={form.email} name="email" type="email" id="email" placeholder="usuario@tuemail.com" className="form-control" required/>
                     </div>
                     
                     <div className="form-group">
-                        <label for="password" className="form-label">Contraseña</label>
+                        <label htmlFor="password" className="form-label">Contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" id="password" placeholder="******" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label for="repeat-password" className="form-label">Repite la contraseña</label>
+                        <label htmlFor="repeat-password" className="form-label">Repite la contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" id="repeat-password" placeholder="******" className="form-control" required/>
                     </div>
                 {/* TODO: ¿Cómo gestionar la validación de contraseñas? */}
@@ -37,17 +37,17 @@ export default function GuideRegisterForm() {
                 <fieldset className="w20"> 
                     <legend>Tus datos personales:</legend> 
                     <div className="form-group">
-                        <label for="name" className="form-label">Nombre</label>
+                        <label htmlFor="name" className="form-label">Nombre</label>
                         <input onChange={handleInputChange} value={form.name} name="name" type="text" id="name" placeholder="Nombre" className="form-control" required/>
                     </div>
                     
                     <div className="form-group">
-                        <label for="surname" className="form-label">Apellidos</label>
+                        <label htmlFor="surname" className="form-label">Apellidos</label>
                         <input onChange={handleInputChange} value={form.surname} name="surname" type="text" id="surname" placeholder="Apellidos" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label for="phone" className="form-label">Teléfono</label>
+                        <label htmlFor="phone" className="form-label">Teléfono</label>
                         <input onChange={handleInputChange} value={form.phone} name="phone" type="tel" id="phone" placeholder="600600600" className="form-control" required/>
                     </div>
                 </fieldset>
@@ -55,17 +55,17 @@ export default function GuideRegisterForm() {
                 <fieldset className="w40"> 
                     <legend>Sobre ti:</legend> 
                     <div className="form-group">
-                        <label for="shortDesc" className="form-label">Resumen</label>
+                        <label htmlFor="shortDesc" className="form-label">Resumen</label>
                         <input onChange={handleInputChange} value={form.shortDesc} name="shortDesc" type="text" id="shortDesc" placeholder="Descríbete en una frase (max: 200 carácteres)" className="form-control" required/>
                     </div>
                     
                     <div className="form-group">
-                        <label for="description" className="form-label">Descripción</label>
+                        <label htmlFor="description" className="form-label">Descripción</label>
                         <input onChange={handleInputChange} value={form.description} name="description" type="text" id="description" placeholder="Cuenta a todos los motivos para elegirte como localz" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
-                        <label for="imgpath" className="form-label">Tu foto de perfil</label>
+                        <label htmlFor="imgpath" className="form-label">Tu foto de perfil</label>
                         <input onChange={handleInputChange} value={form.imgpath} name="imgpath" type="file" id="imgpath" placeholder="¡Sube una foto tuya!" className="form-control" required/>
                         {/* //TODO: Cómo meter el nombre del archivo */}
                     </div>
