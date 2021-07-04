@@ -20,7 +20,7 @@ export default function Advantages() {
 
     return (
         <section className="advantages-container">
-            {ADVANTAGES.map(advantage => <AdvantageCard title={advantage.title} text={advantage.text} imgpath={advantage.imgPath}/>)}
+            {ADVANTAGES.map(advantage => <AdvantageCard title={advantage.title} text={advantage.text} imgpath={advantage.imgPath} key={advantage.title} /> )}
         </section>
     )
 }

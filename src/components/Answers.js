@@ -20,7 +20,7 @@ export default function Answers() {
 
     return (
         <section className="answers-container">
-            {FAQ.map(question => <AnswerCard question={question.question} answer={question.answer} imgpath={question.imgPath}/>)}
+            {FAQ.map(question => <AnswerCard question={question.question} answer={question.answer} imgpath={question.imgPath} key={question.question}/>)}
         </section>
     )
 }
