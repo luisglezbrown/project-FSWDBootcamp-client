@@ -1,46 +1,79 @@
+import { useEffect, useState } from 'react';
 import { useForm } from '../hooks/useForm';
 
 import './style/RegisterForm.css'
 
 export default function NewTourForm() {
 
-    let categoriesList = ['Historia', 'Gastro', 'Naturaleza', 'Alternativo', 'Playa', 'Compras', 'Tradiciones', 'LGBTI+'];
+    const [cities, setCities] = useState([]);
+    const API_CITIES = "http://127.0.0.1:8000/api/allcities";
+    useEffect(() => {
+        fetch(API_CITIES)
+        .then(response => response.json())
+        .then(data => setCities(data.results))
+    }, [])
 
-    const API_CITIES = {
-        total: 15,
-        results: [
-            {id: 1, name: "París", country: "Francia"},
-            {id: 2, name: "New York", country: "Estados Unidos"},
-            {id: 3, name: "Barcelona", country: "España"},
-            {id: 15, name: "Cartagena de Indias", country: "Colombia"},
-            {id: 16, name: "Tokio", country: "Japón"},
-            {id: 5, name: "Londres", country: "Reino Unido"},
-            {id: 6, name: "Rio de Janeiro", country: "Brasil"},
-            {id: 7, name: "Abu Dhabi", country: "Emiratos Árabes"},
-            {id: 9, name: "Roma", country: "Italia"},
-            {id: 4, name: "Estambul", country: "Turquía"},
-            {id: 10, name: "Atenas", country: "Grecia"},
-            {id: 11, name: "Praga", country: "República Checa"},
-            {id: 13, name: "San Petersburgo", country: "Rusia"},
-            {id: 14, name: "San Francisco", country: "Estados Unidos"},
-            {id: 8, name: "Viena", country: "Austria"},
-            {id: 12, name: "Budapest", country: "Hungría"}
-        ]
-    };
 
-    /*     useEffect(() => {
-        // TODO: fetch a mi endpoint "allCities"
-    }, []) */
+    const [categoriesList, setCategoriesList] = useState([]);
+    useEffect(() => {
+        fetch("http://127.0.0.1:8000/api/categorieslist")
+        .then(response => response.json())
+        .then(data => setCategoriesList(data));
+    }, []);
 
-    let cities = API_CITIES.results;
+    const daysList = [
+        {id: 1, name: "Lunes"},
+        {id: 2, name: "Martes"},
+        {id: 3, name: "Miércoles"},
+        {id: 4, name: "Jueves"},
+        {id: 5, name: "Viernes"},
+        {id: 6, name: "Sábado"},
+        {id: 0, name: "Domingo"}
+    ];
 
-    const initialFormState = {cityId: "", title: "", duration: Number(), availableWeekDays: Number(), hightlight: "", startingTime: "", meetingPoint: "", description: "", imgpath: "", categories: Boolean()};
-    const [form, handleInputChange] = useForm(initialFormState); 
+    //TODO: Gestionar el userId, debe pillarlo del token
+    const initialFormState = {userId: "1501", cityId: "", title: "", duration: Number(), highlight: "", startingTime: "", meetingPoint: "", description: ""};
+    const [form, 
+        handleInputChange, 
+        handleCatCheckboxChange, 
+        catCheckedState, 
+        handleDaysCheckboxChange, 
+        daysCheckedState] = useForm(initialFormState, categoriesList, daysList);
+    // console.log(form);
 
-    const handleSubmit = e => {
+
+    /* Este bloque gestiona los cambios en la carga de imagen */
+    const [image, setImage] = useState('');
+    const handleImageUpload = e => setImage(e.target.files[0]);
+
+    async function handleSubmit(e) {
         e.preventDefault();
-        //TODO: Introducir la lógica del formulario.
-    };
+
+        /* Este bloque es el fetch del json sin imagen */
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(form)
+        }
+
+        const response = await fetch("http://127.0.0.1:8000/api/newtour", options);
+        const data = await response.json();
+
+
+        /* Este bloque es el fetch de la imagen */
+        const formImage = new FormData();
+        formImage.append("File", image);
+        
+        const optionsImage = {
+            method: "POST",
+            // headers: {"Content-Type": "multipart/form-data"},
+            body: formImage
+        }
+
+        const responseImage = await fetch(`http://127.0.0.1:8000/api/uploadtourimage/${data.id}`, optionsImage);
+        const dataImage = await responseImage;
+        console.log(dataImage);
+    }
 
 
     return (
@@ -69,7 +102,7 @@ export default function NewTourForm() {
                     <div class="form-group">
                         <label class="form-label">Resumen</label>
                         <small>¡Capta la atención de los viajeros con menos 250 caracteres que definan tu free-tour!</small>
-                        <input onChange={handleInputChange} value={form.hightlight} name="hightlight" type="text" placeholder="Un ejemplo sería 'Un paseo inolvidable por Cartagena.'" required/>
+                        <input onChange={handleInputChange} value={form.highlight} name="highlight" type="text" placeholder="Un ejemplo sería 'Un paseo inolvidable por Cartagena.'" required/>
                     </div>
 
                     <div class="form-group">
@@ -96,20 +129,13 @@ export default function NewTourForm() {
                         <small>Selecciona qué día/s se realiza el tour.</small>
                     </div>
                     <div id="availableWeekDays">
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Lunes</small>
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Martes</small>
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Miércoles</small>
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Jueves</small>
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Viernes</small>
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Sábado</small>
-                        <small className="check"> <input type="checkbox" name="availableWeekDays" value={form.availableWeekDays} onChange={handleInputChange}/>Domingo</small>
-                        {/* //TODO: Cómo enviar los valores de días de la semana */}
+                        {daysList.map((day, index )=><small className="check"> <input type="checkbox" name="weekDays" value={day.id} checked={daysCheckedState[index]} onChange={() => handleDaysCheckboxChange(index)}/>{day.name}</small>)}
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">Punto de encuentro</label>
                         <small>¿Dónde te reunirás con ellos? ¿Cómo te reconocerán?</small>
-                        <textarea onChange={handleInputChange} value={form.description} name="description" type="text" placeholder="Place Charles de Gaulle, justo en la esquina frente al McDonald's. Me reconoceréis por el paraguas verde :)" required className="meeting-point"/>
+                        <textarea onChange={handleInputChange} value={form.meetingPoint} name="meetingPoint" type="text" placeholder="Place Charles de Gaulle, justo en la esquina frente al McDonald's. Me reconoceréis por el paraguas verde :)" required className="meeting-point"/>
                     </div>
 
                     <div className="form-group">
@@ -117,15 +143,13 @@ export default function NewTourForm() {
                         <small>Selecciona aquellas categorías para tu tour.</small>
                     </div>
                     <div id="categories">
-                        {categoriesList.map(category => <small className="check"> <input type="checkbox" name="categories" value={form.categories} onChange={handleInputChange}/>{category}</small>)}
-                        {/* //TODO: Cómo enviar los valores de categorías */}
+                        {categoriesList.map((category, index)=> <small className="check"><input type="checkbox" name="categories" value={category.id} checked={catCheckedState[index]} onChange={() => handleCatCheckboxChange(index)}  /> {category.tag}</small>)}
                     </div>
                     
                     <div className="form-group">
                         <label for="imgpath" className="form-label">Foto</label>
                         <small>Sube una foto de algo representativo o de un grupo de viajeros. Los tours con foto son más llamativos y tienen hasta un 70% más de reservas.</small>
-                        <input onChange={handleInputChange} value={form.imgpath} name="imgpath" type="file" id="imgpath" />
-                        {/* //TODO: Cómo meter el nombre del archivo */}
+                        <input onChange={handleImageUpload} name="imgpath" type="file" id="imgpath" accept="png jpg jpeg"/>
                     </div>
 
                 </fieldset>
