@@ -1,9 +1,12 @@
+import { useHistory } from "react-router";
 import { useState } from "react";
+
 import { useForm } from '../hooks/useForm';
 
 import './style/GuideRegisterForm.css'
 
 export default function GuideRegisterForm() {
+    const history = useHistory();
 
     const initialFormState = {email: "", password: "", name: "", lastname: "", phone: "", role:["ROLE_GUIDE"], shortDesc:"", description:""};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
@@ -38,6 +41,12 @@ export default function GuideRegisterForm() {
         const responseImage = await fetch(`http://127.0.0.1:8000/api/uploadguideimage/${data.id}`, optionsImage);
         const dataImage = await responseImage;
         console.log(dataImage);
+
+        if(response.status >= 200 && response.status < 300) {
+            history.push("/accountcreated")
+        } else {
+            alert("Login incorrecto");
+        }
     }
 
     return (
