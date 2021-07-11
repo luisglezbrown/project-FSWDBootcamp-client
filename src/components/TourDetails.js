@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import AnswerCard from './AnswerCard';
 
@@ -8,7 +8,6 @@ import './style/TourDetails.css'
 export default function TourDetails({tour, guide}) {
     
     const [booking, setBooking] = useState({});
-    let { tourId } = useParams();
     
     const QUESTION = "¿Cuánto cuesta?";
     const ANSWER = "Tu localz lo dará todo por mostrarte su ciudad y al final del tour eliges cuánto cuesta en función de tu experiencia. ¡Free viene de \"libre\", no de gratis! Eres libre de dar la propina que consideres a tu Localz";
@@ -49,7 +48,7 @@ export default function TourDetails({tour, guide}) {
             <aside className="tourDetails-right">
                 <div className="booking-box-container">
                     <h1>¡Asegura tu plaza!</h1>
-                    <BookingForm booking={booking} setBooking={setBooking} tourId={tourId}/>
+                    <BookingForm booking={booking} setBooking={setBooking} tour={tour} />
                 </div>
                 <AnswerCard question={QUESTION} answer={ANSWER} imgpath={IMAGE_PATH} style={{"width":"100%"}}/>
             </aside>
