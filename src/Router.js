@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 import Index from './pages/Index';
 import Login from './pages/Login';
@@ -9,14 +10,14 @@ import City from "./pages/City";
 import Guide from "./pages/Guide";
 import Tour from "./pages/Tour";
 import AccountCreated from "./pages/AccountCreated";
-import NewTour from "./pages/NewTour.js";
-
-
+import NewTour from "./pages/NewTour";
+import MyAccount from "./pages/MyAccount";
 
 export default function Router() {
     return (
         <>
             <BrowserRouter>
+            <ScrollToTop />
                 <Switch>
                     <Route exact path='/' component={Index} />
                     <Route path='/login' component={Login} />
@@ -28,10 +29,9 @@ export default function Router() {
                     <Route path='/tour/:id'component={Tour} />
                     <Route path='/accountcreated' component={AccountCreated} />
                     <Route path='/newTour' component={NewTour} />
+                    <Route path='/myaccount' component={MyAccount} />
 
-
-                    {/*<Route path='/dashboard' component={Dashboard}/>
-                    <Route path='/record/:user' component={Record}/>*/}
+                    {/* TODO: <Route path='/dashboard' component={Dashboard}/>*/}
                     {/*<Route component={Error}/>*/} {/* TODO: Crear un componente de error */}           
                 </Switch>
             </BrowserRouter>
