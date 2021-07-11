@@ -1,8 +1,10 @@
 import { useForm } from '../hooks/useForm';
+import { useHistory } from 'react-router';
 
 import './style/RegisterForm.css'
 
 export default function RegisterForm() {
+    const history = useHistory();
 
     const initialFormState = {email: "", password: "", name: "", lastname: "", phone: "", role:["ROLE_USER"], shortDesc:"", description:""};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
@@ -10,6 +12,7 @@ export default function RegisterForm() {
 
     async function handleSubmit(e){
         e.preventDefault();
+        
 
         const options = {
             method: "POST",
@@ -17,9 +20,15 @@ export default function RegisterForm() {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch("http://127.0.0.1:8000/api/newuser", options);
+        const response = await fetch("http://127.0.0.1:8000/api/register", options);
         const data = await response;
         console.log(data);
+
+        if(response.status >= 200 && response.status < 300) {
+            history.push("/accountcreated")
+        } else {
+            alert("¡Algo fue mal, vuelve a intentarlo!");
+        }
     }
     
 
