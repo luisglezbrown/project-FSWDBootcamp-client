@@ -14,7 +14,8 @@ export default function Tour() {
         fetch(API_TOUR_DETAILS)
         .then(response => response.json())
         .then(data => setTour(data))
-    })
+        // eslint-disable-next-line
+    }, [])
 
 
 	
