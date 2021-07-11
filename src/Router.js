@@ -10,6 +10,8 @@ import City from "./pages/City";
 import Guide from "./pages/Guide";
 import Tour from "./pages/Tour";
 import AccountCreated from "./pages/AccountCreated";
+import BookingCreated from "./pages/BookingCreated";
+import TourCreated from "./pages/TourCreated";
 import NewTour from "./pages/NewTour";
 import MyAccount from "./pages/MyAccount";
 
@@ -28,6 +30,8 @@ export default function Router() {
                     <Route path='/guide/:id'component={Guide} />
                     <Route path='/tour/:id'component={Tour} />
                     <Route path='/accountcreated' component={AccountCreated} />
+                    <Route path='/tourcreated' component={TourCreated} />
+                    <Route path='/bookingcreated' component={BookingCreated} />
                     <Route path='/newTour' component={NewTour} />
                     <Route path='/myaccount' component={MyAccount} />
 
