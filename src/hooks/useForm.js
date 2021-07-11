@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-//TODO: meter el POST para hacer la reserva.
-
 const useForm = (initialState, categoriesList, daysList) => {
     /* 
         Custom Hook que gestiona los estados de cualquier formulario, con cualquier tamaño.
