@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 import './style/Navbar.css'
 
 import logo2 from '../images/logo2.png'
+// TODO: cambiar logo desde archivo en server
 
 export default function Navbar() {
-
-    let userLogged = false;
-    /* TODO: ¿Cómo capturo si el usuario está logueado? */
-
+    
+    const {isAuthenticated, signOut} = useAuthContext();
 
     return (
         <nav>
             <Link to='/'><img src={logo2} alt="logo" className="logo"/></Link>
 
             {
-                userLogged
+                isAuthenticated
                 ?   <div className='button-container'>
-                        <Link to='/logout' className="btn register"> cerrar sesión</Link>
-                        <Link to='/my-account' className="btn login"> mi cuenta</Link>
+                        <Link to='/' onClick={signOut} className="btn register"> cerrar sesión</Link>
+                        <Link to='/myaccount' className="btn login"> mi cuenta</Link>
                     </div> 
                 :   <div className='button-container'>
                         <Link to='/newuser' className="btn register"> registro</Link>
