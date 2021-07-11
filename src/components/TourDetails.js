@@ -18,32 +18,32 @@ export default function TourDetails({tour, guide}) {
 
        <div className="tourDetails-container">
             <section className="tourDetails-left">
-                <h1>{tour.name}</h1>
-                <span className='grey-label'>{tour.cityName}</span>
+                <h1>{tour.title}</h1>
+                <span className='grey-label'>{tour?.city?.name}</span>
                 <span className='grey-label'>Duración: {tour.duration} horas</span>
 
                 <article className="tour-description">
                     <p><span className='about-label'>Descripción: </span></p>
-                    <p>{tour.shortDesc}</p>
-                    <p>{tour.longDesc}</p>
+                    <p>{tour.highlight}</p>
+                    <p>{tour.description}</p>
                 </article>
 
                 <article className="meeting-details-container">   
                     <div className="details">
                         <p className='about-label'>Hora de comienzo: </p>
-                        <p>{tour.startTime} ¡Se puntual!</p>
+                        <p>{tour.startingTime} ¡Se puntual!</p>
                     </div>
                     <div className="details">
                         <p className='about-label'>Punto de encuentro: </p>
                         <p>{tour.meetingPoint} </p>
                     </div>
-                    <Link to={`/guide/${guide.id}`} className="localz-details">                        
-                        <img src={`/images/guides/${guide.imgpath}`} alt={tour.name} className="guide-picture"/> 
-                        <p className='about-label'>¡Soy {guide.name}, tu localz!</p>
+                    <Link to={`/guide/${guide?.id}`} className="localz-details">                        
+                        <img src={`/images/guides/${guide?.imgpath}`} alt={guide?.name} className="guide-picture"/> 
+                        <p className='about-label'>¡Soy {guide?.name}, tu localz!</p>
                     </Link>     
                 </article>
 
-                <img src={`/images/tours/${tour.imgpath}`} alt={tour.name} className="tour-image"/>
+                <img src={`/images/tours/${tour?.imgpath}`} alt={tour?.name} className="tour-image"/>
             </section>
 
             <aside className="tourDetails-right">
