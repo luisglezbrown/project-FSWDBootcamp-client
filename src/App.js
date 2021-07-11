@@ -1,11 +1,14 @@
+import AuthContext from "./context/AuthContext";
 import Router from './Router'
 import Footer from './components/Footer';
 
 function App() {
   return (
     <>
-      <Router />
-      <Footer />
+      <AuthContext>
+        <Router />
+        <Footer />
+      </AuthContext>
     </>
   );
 }
