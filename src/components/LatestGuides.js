@@ -1,26 +1,21 @@
 import LastGuideCard from "./LastGuideCard";
+import { useEffect, useState } from "react";
 
 import './style/LatestGuides.css'
 
 export default function LatestGuides() {
 
-// Meter la API en un useState
+    const [latestGuides, setLatestGuides] = useState([])
 
-    const API_LATEST_GUIDES = {
-        total: 4,
-        results: [
-            {id: 1503, name: "Alfonso", city: "Cartagena de Indias", about: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam animi quos corrupti eaque odit id officia magni possimus repudiandae dignissimos!"},
-            {id: 2, name: "Claudia", city: "New York", about: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta eligendi fugit officiis aliquam ea animi cum ipsa veniam dolor numquam."},
-            {id: 3, name: "Sara", city: "Barcelona", about: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae dolor voluptas molestiae expedita minus aliquam molestias vel, accusantium cumque nisi!"},
-            {id: 4, name: "Felipe", city: "Estambul", about: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas quis dolores cum animi tempore pariatur ducimus sequi labore perferendis delectus?"},
-        ]
-    };
+    const API_LATEST_GUIDES = "http://127.0.0.1:8000/api/latestguides"
 
-/*     useEffect(() => {
-        // TODO: fetch a mi endpoint
-    }, []) */
+    useEffect(() => {
+        fetch(API_LATEST_GUIDES)
+        .then(response => response.json())
+        .then(data => setLatestGuides(data.results))
+    }, [])
 
-    let guides = API_LATEST_GUIDES.results;
+    let guides = latestGuides;
 
     return (
         <section className='guides-section-container'>
