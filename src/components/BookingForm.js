@@ -23,10 +23,9 @@ export default function Form({tour}){
         console.log(data);
 
         if(response.status >= 200 && response.status < 300) {
-            alert("¡Reserva creada correctamente!");
-            history.push("/myaccount")
+            history.push("/bookingcreated")
         } else {
-            alert("Login incorrecto");
+            alert("La reserva no se hizo correctamente");
         }
     }
 
