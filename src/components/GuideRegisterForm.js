@@ -1,16 +1,44 @@
+import { useState } from "react";
 import { useForm } from '../hooks/useForm';
 
 import './style/GuideRegisterForm.css'
 
 export default function GuideRegisterForm() {
 
-    const initialFormState = {email: "", password: "", name: "", surname: "", phone: "", role: "guide", shortDesc: "", description: "" }; //TODO: Cómo meter el nombre del archivo
+    const initialFormState = {email: "", password: "", name: "", lastname: "", phone: "", role:["ROLE_GUIDE"], shortDesc:"", description:""};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
+    const [image, setImage] = useState('');
 
-    const handleSubmit = e => {
+    const handleImageUpload = e => setImage(e.target.files[0]);
+    console.log(image);
+
+    async function handleSubmit(e) {
         e.preventDefault();
-        //TODO: Introducir la lógica del formulario.
-    };
+
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(form)
+        }
+
+        const response = await fetch("http://127.0.0.1:8000/api/register", options);
+        const data = await response.json();
+        console.log(data);
+
+
+        const formImage = new FormData();
+        formImage.append("File", image);
+        
+        const optionsImage = {
+            method: "POST",
+            // headers: {"Content-Type": "multipart/form-data"},
+            body: formImage
+        }
+
+        const responseImage = await fetch(`http://127.0.0.1:8000/api/uploadguideimage/${data.id}`, optionsImage);
+        const dataImage = await responseImage;
+        console.log(dataImage);
+    }
 
     return (
 
@@ -42,8 +70,8 @@ export default function GuideRegisterForm() {
                     </div>
                     
                     <div className="form-group">
-                        <label htmlFor="surname" className="form-label">Apellidos</label>
-                        <input onChange={handleInputChange} value={form.surname} name="surname" type="text" id="surname" placeholder="Apellidos" className="form-control" required/>
+                        <label htmlFor="lastname" className="form-label">Apellidos</label>
+                        <input onChange={handleInputChange} value={form.lastname} name="lastname" type="text" id="lastname" placeholder="Apellidos" className="form-control" required/>
                     </div>
 
                     <div className="form-group">
@@ -66,8 +94,7 @@ export default function GuideRegisterForm() {
 
                     <div className="form-group">
                         <label htmlFor="imgpath" className="form-label">Tu foto de perfil</label>
-                        <input onChange={handleInputChange} value={form.imgpath} name="imgpath" type="file" id="imgpath" placeholder="¡Sube una foto tuya!" className="form-control" required/>
-                        {/* //TODO: Cómo meter el nombre del archivo */}
+                        <input onChange={handleImageUpload} name="imgpath" type="file" id="imgpath" className="form-control" accept="png jpg jpeg" />
                     </div>
                 </fieldset>
 
