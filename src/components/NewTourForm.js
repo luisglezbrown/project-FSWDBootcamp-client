@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { useForm } from '../hooks/useForm';
 
 import './style/RegisterForm.css'
 
 export default function NewTourForm() {
+    const history = useHistory();
 
     const [cities, setCities] = useState([]);
     const API_CITIES = "http://127.0.0.1:8000/api/allcities";
@@ -73,6 +75,12 @@ export default function NewTourForm() {
         const responseImage = await fetch(`http://127.0.0.1:8000/api/uploadtourimage/${data.id}`, optionsImage);
         const dataImage = await responseImage;
         console.log(dataImage);
+
+        if(response.status >= 200 && response.status < 300) {
+            history.push("/tourcreated")
+        } else {
+            alert("El tour no se creó correctamente correctamente");
+        }
     }
 
 
