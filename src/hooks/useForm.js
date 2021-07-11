@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 
 //TODO: meter el POST para hacer la reserva.
 
-const useForm = (initialState) => {
+const useForm = (initialState, categoriesList, daysList) => {
     /* 
         Custom Hook que gestiona los estados de cualquier formulario, con cualquier tamaño.
         Necesita como estado inicial un objeto que tenga tantas propiedades
@@ -26,11 +26,67 @@ const useForm = (initialState) => {
         });
     }
 
+
+    // const [categoriesList, setCategoriesList] = useState([]);
+    // useEffect(() => {
+    //     fetch("http://127.0.0.1:8000/api/categorieslist")
+    //     .then(response => response.json())
+    //     .then(data => setCategoriesList(data));
+    // }, []);
+
+    const [catCheckedState, setCatCheckedState] = useState();
+    useEffect(() => setCatCheckedState(new Array(categoriesList?.length).fill(false)), [categoriesList]);
+    const handleCatCheckboxChange = (position) => {
+        const updatedcatCheckedState = catCheckedState.map((item, index) =>
+          index === position ? !item : item
+        );
+        setCatCheckedState(updatedcatCheckedState);
+    
+        const catIdsArray = [];
+        updatedcatCheckedState.map(
+          (state, index) => {
+            if (state === true) {
+              catIdsArray.push(categoriesList[index].id);
+            }
+            return 0;
+          }
+        );
+  
+        setForm(previousState => {
+          return {...previousState, 'categories': catIdsArray}
+      });
+    };
+
+
+
+    const [daysCheckedState, setDaysCheckedState] = useState(new Array(7).fill(false));
+
+    const handleDaysCheckboxChange = (position) => {
+      const updatedDaysCheckedState = daysCheckedState.map((item, index) =>
+        index === position ? !item : item
+      );
+      setDaysCheckedState(updatedDaysCheckedState);
+  
+      const idsArray = [];
+      updatedDaysCheckedState.map(
+        (day, index) => {
+          if (day === true) {
+            idsArray.push(daysList[index].id);
+          }
+          return 0;
+        }
+      );
+      setForm(previousState => {
+        return {...previousState, 'weekDays': idsArray}
+    });
+    };
+
+      
     /*
         Decidimos que devuelva el estado (objeto form) y la función
         que actualiza una propiedad individual, en lugar del setForm
      */
-    return [form, handleInputChange];
+    return [form, handleInputChange, handleCatCheckboxChange, catCheckedState, handleDaysCheckboxChange, daysCheckedState];
 }
 
 export {useForm};
