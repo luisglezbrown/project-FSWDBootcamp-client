@@ -1,27 +1,45 @@
+import { useHistory } from "react-router";
 import { useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 import './style/BookingForm.css'
 
 
-export default function Form({booking, setBooking, tour}){
-
+export default function Form({tour}){
+    const history = useHistory();
     let {id} = useParams();
-
-    const initialFormState = {tour: id, pax: "", date:"", status: "active"};
+// TODO: Quitar el userId Harcodeado
+    const initialFormState = {userId: "31", tourId: id, pax: "", date:"", status: "active"};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
+    
+    async function fetchNewBooking() {
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(form)
+        }
+        const response = await fetch("http://127.0.0.1:8000/api/newbooking", options);
+        const data = await response.json();
+        console.log(data);
 
-    const handleSubmit = e => {
+        if(response.status >= 200 && response.status < 300) {
+            alert("¡Reserva creada correctamente!");
+            history.push("/myaccount")
+        } else {
+            alert("Login incorrecto");
+        }
+    }
+
+    async function handleSubmit(e){
         e.preventDefault();
         let selectedDate = new Date(Date.parse(form?.date)).getDay().toString();
         let availableDays = tour?.weekDays;
 
         !availableDays.includes(selectedDate) 
         ? alert('Oooops! Comprueba la fecha, el tour no se realiza el día seleccionado :(') 
-        : alert();
-        
-        
+        : fetchNewBooking()
     };
+        
     // console.log("tour: " + tour);
     // console.log(tour);
     console.log("form: " + form);
