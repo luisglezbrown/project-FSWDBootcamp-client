@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { GET_TOURS_BY_CITY } from '../config/config';
+import { GET_TOURS_BY_CITY, CITIES_FOLDER } from '../config/config';
 
 import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
@@ -25,8 +25,7 @@ export default function City() {
     const TEXT_CONTENT = results?.totalTours > 1
                         ? `${results?.totalTours} free-tours disponibles. Echa un vistazo y reserva el tuyo ¡GRATIS!`
                         : `Solo hay un tour, ¡Esto es amor a primera vista!`;
-    const IMG_URL = `/images/cities/${city?.imgpath}`;
-    const INLINE_STYLE = {backgroundImage: `linear-gradient(95deg, #d4d4d4 0%, rgba(255,255,255,1) 65%, rgba(255,204,0,0) 75%), url(${IMG_URL})`};
+    const INLINE_STYLE = {backgroundImage: `linear-gradient(95deg, #d4d4d4 0%, rgba(255,255,255,1) 65%, rgba(255,204,0,0) 75%), url(${CITIES_FOLDER + city?.imgpath})`};
 
     return (
         <>
