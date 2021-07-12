@@ -13,7 +13,7 @@
 }
 
 .become-image {
-    background-image: linear-gradient(90deg, rgba(255,255,255,0.022829200039390707) 80%, rgba(250,250,250,1) 100%), url("../../images/become1.jpg");
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.022829200039390707) 80%, rgba(250,250,250,1) 100%), url("http://localhost:8000/images/static/become1.jpg");
     background-position: 30% 20%;
     background-size: cover;
     width: 100%;
