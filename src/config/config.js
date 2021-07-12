@@ -1,9 +1,17 @@
 const PORT = 8000;
 const BASE_API_URL = `http://localhost:${PORT}/api/`;
+const BASE_IMG_DIRECTORY =`http://localhost:${PORT}/images/`;
+
 const LOGIN_URL = BASE_API_URL + "login_check";
 const SESSION_URL = BASE_API_URL + "session";
 const PRIVATE_URL = BASE_API_URL + "private";
 const ADMIN_URL = BASE_API_URL + "admin";
+
+/* Rutas a img folders */
+const STATIC_FOLDER = BASE_IMG_DIRECTORY + "static/";
+const CITIES_FOLDER = BASE_IMG_DIRECTORY + "static/cities/";
+const GUIDES_FOLDER = BASE_IMG_DIRECTORY + "guides/";
+const TOURS_FOLDER = BASE_IMG_DIRECTORY + "tours/";
 
 /* Endpoints - Métodos GET*/
 const GET_CITIES_ALL = BASE_API_URL + "allcities";
@@ -39,5 +47,20 @@ export {
     GET_GUIDE_DETAILS,
     GET_GUIDES_LATEST,
     POST_BOOKING_NEW,
-    GET_CATEGORY_ALL
+    GET_CATEGORY_ALL,
+    STATIC_FOLDER,
+    CITIES_FOLDER,
+    GUIDES_FOLDER,
+    TOURS_FOLDER
 };
+
+
+/* 
+import { CITIES_FOLDER } from "../config/config"
+
+STATIC_FOLDER + "advantages/" + imgpath
+STATIC_FOLDER + "logo.png"
+GUIDES_FOLDER + imgpath
+
+"http://localhost:8000/images/static/become1.jpg"
+ */
