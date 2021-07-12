@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { GET_GUIDE_DETAILS } from '../config/config';
 
 import Navbar from "../components/Navbar";
 import TourCard from "../components/TourCard";
@@ -11,12 +12,12 @@ export default function Guide() {
     const { id } = useParams();
     const [guide, setGuide] = useState([])
 
-    const API_GUIDE_DETAILS = `http://127.0.0.1:8000/api/guidedetails/${id}`;
     useEffect(() => {
-        fetch(API_GUIDE_DETAILS)
+        fetch(GET_GUIDE_DETAILS + id)
         .then(response => response.json())
         .then(data => setGuide(data))
-    }, [API_GUIDE_DETAILS])
+        // eslint-disable-next-line
+    }, [])
     
     const tours = guide?.tours;
 

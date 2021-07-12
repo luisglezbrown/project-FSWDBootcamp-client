@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import { useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+import { POST_BOOKING_NEW } from '../config/config';
 
 import './style/BookingForm.css'
 
@@ -18,7 +19,7 @@ export default function Form({tour}){
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(form)
         }
-        const response = await fetch("http://127.0.0.1:8000/api/newbooking", options);
+        const response = await fetch(POST_BOOKING_NEW, options);
         const data = await response.json();
         console.log(data);
 

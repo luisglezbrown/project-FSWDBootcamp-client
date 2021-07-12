@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { GET_CITIES_TOP } from '../config/config';
 
 import CityCard from './CityCard';
 
@@ -9,9 +10,8 @@ export default function TopDestinations() {
 
     const [topCities, setTopCities] = useState([])
 
-    const API_TOP_CITIES = "http://127.0.0.1:8000/api/topdestinations";
     useEffect(() => {
-        fetch(API_TOP_CITIES)
+        fetch(GET_CITIES_TOP)
         .then(response => response.json())
         .then(data => setTopCities(data.results))
     }, [])

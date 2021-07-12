@@ -1,5 +1,7 @@
 import LastGuideCard from "./LastGuideCard";
 import { useEffect, useState } from "react";
+import { GET_GUIDES_LATEST } from '../config/config';
+
 
 import './style/LatestGuides.css'
 
@@ -7,10 +9,8 @@ export default function LatestGuides() {
 
     const [latestGuides, setLatestGuides] = useState([])
 
-    const API_LATEST_GUIDES = "http://127.0.0.1:8000/api/latestguides"
-
     useEffect(() => {
-        fetch(API_LATEST_GUIDES)
+        fetch(GET_GUIDES_LATEST)
         .then(response => response.json())
         .then(data => setLatestGuides(data.results))
     }, [])

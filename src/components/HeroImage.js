@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GET_CITIES_ALL } from '../config/config';
+
 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -12,9 +14,8 @@ export default function HeroImage() {
     const [cityTarget, setCityTarget] = useState('')
 
 
-    const API_CITIES = "http://127.0.0.1:8000/api/allcities";
     useEffect(() => {
-        fetch(API_CITIES)
+        fetch(GET_CITIES_ALL)
         .then(response => response.json())
         .then(data => setCities(data.results))
     }, [])

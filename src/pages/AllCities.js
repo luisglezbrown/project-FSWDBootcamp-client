@@ -2,14 +2,14 @@ import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
 import CityCard from "../components/CityCard";
 import { useEffect, useState } from "react";
+import { GET_CITIES_ALL } from '../config/config';
 
 export default function AllCities() {
 
     const [cities, setCities] = useState({})
 
-    const API_CITIES = "http://127.0.0.1:8000/api/allcities";
     useEffect(() => {
-        fetch(API_CITIES)
+        fetch(GET_CITIES_ALL)
         .then(response => response.json())
         .then(data => setCities(data))
     }, [])

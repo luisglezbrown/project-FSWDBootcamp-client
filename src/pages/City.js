@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { GET_TOURS_BY_CITY } from '../config/config';
 
 import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
@@ -10,9 +11,8 @@ export default function City() {
     const { id } = useParams();
     const [results, setResults] = useState([])
 
-    const API_TOURS_BY_CITY = `http://127.0.0.1:8000/api/toursbycity/${id}`
     useEffect(() => {
-        fetch(API_TOURS_BY_CITY)
+        fetch(GET_TOURS_BY_CITY + id)
         .then(response => response.json())
         .then(data => setResults(data))
         // eslint-disable-next-line

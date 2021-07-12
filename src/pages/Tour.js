@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { GET_TOUR_DETAILS } from '../config/config';
 
 import Navbar from '../components/Navbar';
 import TourDetails from '../components/TourDetails';
@@ -9,9 +10,8 @@ export default function Tour() {
     const { id } = useParams();
     const [tour, setTour] = useState([])
 
-    const API_TOUR_DETAILS = `http://127.0.0.1:8000/api/tourdetails/${id}`
     useEffect(() => {
-        fetch(API_TOUR_DETAILS)
+        fetch(GET_TOUR_DETAILS + id)
         .then(response => response.json())
         .then(data => setTour(data))
         // eslint-disable-next-line

@@ -2,6 +2,7 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 
 import { useForm } from '../hooks/useForm';
+import { POST_USER_NEW, POST_USER_IMG } from '../config/config';
 
 import './style/GuideRegisterForm.css'
 
@@ -24,7 +25,7 @@ export default function GuideRegisterForm() {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch("http://127.0.0.1:8000/api/register", options);
+        const response = await fetch(POST_USER_NEW, options);
         const data = await response.json();
         console.log(data);
 
@@ -38,7 +39,7 @@ export default function GuideRegisterForm() {
             body: formImage
         }
 
-        const responseImage = await fetch(`http://127.0.0.1:8000/api/uploadguideimage/${data.id}`, optionsImage);
+        const responseImage = await fetch(POST_USER_IMG + data.id, optionsImage);
         const dataImage = await responseImage;
         console.log(dataImage);
 

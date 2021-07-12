@@ -1,5 +1,6 @@
 import { useForm } from '../hooks/useForm';
 import { useHistory } from 'react-router';
+import { POST_USER_NEW } from '../config/config';
 
 import './style/RegisterForm.css'
 
@@ -20,7 +21,7 @@ export default function RegisterForm() {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch("http://127.0.0.1:8000/api/register", options);
+        const response = await fetch(POST_USER_NEW, options);
         const data = await response;
         console.log(data);
 

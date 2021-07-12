@@ -1,7 +1,8 @@
-import { Redirect, useHistory } from "react-router";
+import { /* Redirect, */ useHistory } from "react-router";
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { useAuthContext } from "../context/AuthContext";
+import { LOGIN_URL } from '../config/config';
 
 import './style/LoginForm.css'
 
@@ -22,7 +23,7 @@ export default function LoginForm() {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch("http://127.0.0.1:8000/api/login_check", options);
+        const response = await fetch(LOGIN_URL, options);
         const data = await response.json();
         console.log(data);
 

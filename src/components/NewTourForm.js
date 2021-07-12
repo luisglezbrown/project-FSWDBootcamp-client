@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useForm } from '../hooks/useForm';
+import { GET_CITIES_ALL, GET_CATEGORY_ALL, POST_TOUR_NEW, POST_TOUR_IMG } from '../config/config';
 
 import './style/RegisterForm.css'
 
@@ -8,9 +9,8 @@ export default function NewTourForm() {
     const history = useHistory();
 
     const [cities, setCities] = useState([]);
-    const API_CITIES = "http://127.0.0.1:8000/api/allcities";
     useEffect(() => {
-        fetch(API_CITIES)
+        fetch(GET_CITIES_ALL)
         .then(response => response.json())
         .then(data => setCities(data.results))
     }, [])
@@ -18,7 +18,7 @@ export default function NewTourForm() {
 
     const [categoriesList, setCategoriesList] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/categorieslist")
+        fetch(GET_CATEGORY_ALL)
         .then(response => response.json())
         .then(data => setCategoriesList(data));
     }, []);
@@ -58,7 +58,7 @@ export default function NewTourForm() {
             body: JSON.stringify(form)
         }
 
-        const response = await fetch("http://127.0.0.1:8000/api/newtour", options);
+        const response = await fetch(POST_TOUR_NEW, options);
         const data = await response.json();
 
 
@@ -72,7 +72,7 @@ export default function NewTourForm() {
             body: formImage
         }
 
-        const responseImage = await fetch(`http://127.0.0.1:8000/api/uploadtourimage/${data.id}`, optionsImage);
+        const responseImage = await fetch(POST_TOUR_IMG + data.id, optionsImage);
         const dataImage = await responseImage;
         console.log(dataImage);
 
