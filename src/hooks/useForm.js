@@ -25,13 +25,6 @@ const useForm = (initialState, categoriesList, daysList) => {
     }
 
 
-    // const [categoriesList, setCategoriesList] = useState([]);
-    // useEffect(() => {
-    //     fetch("http://127.0.0.1:8000/api/categorieslist")
-    //     .then(response => response.json())
-    //     .then(data => setCategoriesList(data));
-    // }, []);
-
     const [catCheckedState, setCatCheckedState] = useState();
     useEffect(() => setCatCheckedState(new Array(categoriesList?.length).fill(false)), [categoriesList]);
     const handleCatCheckboxChange = (position) => {
