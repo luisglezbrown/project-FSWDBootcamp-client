@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import { STATIC_FOLDER } from "../config/config"
 
 import './style/Navbar.css'
-
-import logo2 from '../images/logo2.png'
-// TODO: cambiar logo desde archivo en server
 
 export default function Navbar() {
     
@@ -12,7 +10,7 @@ export default function Navbar() {
 
     return (
         <nav>
-            <Link to='/'><img src={logo2} alt="logo" className="logo"/></Link>
+            <Link to='/'><img src={STATIC_FOLDER + 'logo2.png'} alt="logo" className="logo"/></Link>
 
             {
                 isAuthenticated

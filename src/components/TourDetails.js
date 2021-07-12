@@ -1,3 +1,4 @@
+import { GUIDES_FOLDER, TOURS_FOLDER } from "../config/config"
 import { Link } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import AnswerCard from './AnswerCard';
@@ -9,7 +10,6 @@ export default function TourDetails({tour, guide}) {
    
     const QUESTION = "¿Cuánto cuesta?";
     const ANSWER = "Tu localz lo dará todo por mostrarte su ciudad y al final del tour eliges cuánto cuesta en función de tu experiencia. ¡Free viene de \"libre\", no de gratis! Eres libre de dar la propina que consideres a tu Localz";
-    const IMAGE_PATH = "/images/answers/answer3.png";
     
     return (
 
@@ -35,12 +35,12 @@ export default function TourDetails({tour, guide}) {
                         <p>{tour.meetingPoint} </p>
                     </div>
                     <Link to={`/guide/${guide?.id}`} className="localz-details">                        
-                        <img src={`/images/guides/${guide?.imgpath}`} alt={guide?.name} className="guide-picture"/> 
+                        <img src={GUIDES_FOLDER + guide?.imgpath} alt={guide?.name} className="guide-picture"/> 
                         <p className='about-label'>¡Soy {guide?.name}, tu localz!</p>
                     </Link>     
                 </article>
 
-                <img src={`/images/tours/${tour?.imgpath}`} alt={tour?.name} className="tour-image"/>
+                <img src={TOURS_FOLDER + tour?.imgpath} alt={tour?.name} className="tour-image"/>
             </section>
 
             <aside className="tourDetails-right">
@@ -48,7 +48,7 @@ export default function TourDetails({tour, guide}) {
                     <h1>¡Asegura tu plaza!</h1>
                     <BookingForm tour={tour} />
                 </div>
-                <AnswerCard question={QUESTION} answer={ANSWER} imgpath={IMAGE_PATH} style={{"width":"100%"}}/>
+                <AnswerCard question={QUESTION} answer={ANSWER} imgpath={'answer3.png'} style={{"width":"100%"}}/>
             </aside>
         </div>
     )

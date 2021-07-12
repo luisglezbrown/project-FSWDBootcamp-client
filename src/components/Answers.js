@@ -7,15 +7,15 @@ export default function Answers() {
     const FAQ = [
         {  question: "¿QUÉ ES LOCALZ?",
             answer: "LocalZ es el sitio que conecta viajeros como tú con los mejores guías de free-tour del mundo.",
-            imgPath: "/images/answers/answer1.png"},
+            imgPath: "answer1.png"},
 
         { question: "¿CÓMO RESERVO?",
             answer: "Reservar un free-tour es fácil... y ¡gratis! Elige tu localz favorito, regístrate y recibe la confirmación por email.",
-            imgPath: "/images/answers/answer2.png"},
+            imgPath: "answer2.png"},
 
         { question: "¿CUÁNTO CUESTA?",
             answer: "¡Tacháaaaan! Lo que te preguntabas desde que llegaste ;) Tu localz lo dará todo por mostrarte su ciudad y al final del tour eliges cuánto cuesta en función de tu experiencia.",
-            imgPath: "/images/answers/answer3.png"}
+            imgPath: "answer3.png"}
     ];
 
     return (

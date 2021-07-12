@@ -1,6 +1,5 @@
+import { STATIC_FOLDER } from "../config/config"
 import './style/Footer.css'
-
-import logo from '../images/logo.png'
 
 export default function Footer() {
     return (
@@ -10,7 +9,7 @@ export default function Footer() {
                 <p>Todas las imágenes creadas por <a href="https://www.freepik.es/" target="_blank" rel="noreferrer">Freepik</a> </p>
             </div>
             <div className="right-container">
-                <img src={logo} alt="logo" className="logo"/>
+                <img src={STATIC_FOLDER + "logo.png"} alt="logo" className="logo"/>
             </div>
         </footer>
     )

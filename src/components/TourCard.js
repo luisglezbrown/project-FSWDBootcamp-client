@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
+import { TOURS_FOLDER } from "../config/config"
 
 import './style/TourCard.css'
 
 export default function TourCard({ tour }) {
-    const IMG_URL = `/images/tours/${tour.imgpath}`;
-    const INLINE_STYLE = {backgroundImage: `linear-gradient(270deg, #fafafa 0%, rgba(255,204,0,0) 10%), url(${IMG_URL})`};
+    const INLINE_STYLE = {backgroundImage: `linear-gradient(270deg, #fafafa 0%, rgba(255,204,0,0) 10%), url(${TOURS_FOLDER + tour.imgpath})`};
 
     return (
         <div className="tour-container">
