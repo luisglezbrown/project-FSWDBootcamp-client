@@ -26,7 +26,7 @@ export default function RegisterForm() {
         console.log(data);
 
         if(response.status >= 200 && response.status < 300) {
-            history.push("/accountcreated")
+            history.push("/accountcreated?role=user")
         } else {
             alert("¡Algo fue mal, vuelve a intentarlo!");
         }
