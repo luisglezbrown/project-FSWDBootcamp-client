@@ -1,13 +1,19 @@
 import { GUIDES_FOLDER, TOURS_FOLDER } from "../config/config"
 import { Link } from 'react-router-dom';
 import BookingForm from './BookingForm';
+import LoginForm from './LoginForm';
 import AnswerCard from './AnswerCard';
+import { useAuthContext } from "../context/AuthContext";
 
 import './style/TourDetails.css'
 
 export default function TourDetails({tour, guide}) {
     
-   
+    const {isAuthenticated, loginUser} = useAuthContext();
+
+    console.log('loginUser: ');
+    console.log(loginUser);
+
     const QUESTION = "¿Cuánto cuesta?";
     const ANSWER = "Tu localz lo dará todo por mostrarte su ciudad y al final del tour eliges cuánto cuesta en función de tu experiencia. ¡Free viene de \"libre\", no de gratis! Eres libre de dar la propina que consideres a tu Localz";
     
@@ -44,11 +50,20 @@ export default function TourDetails({tour, guide}) {
             </section>
 
             <aside className="tourDetails-right">
-                <div className="booking-box-container">
-                    <h1>¡Asegura tu plaza!</h1>
-                    <BookingForm tour={tour} />
-                </div>
+                {isAuthenticated
+                ?   <>
+                        <div className="booking-box-container">
+                            <h1>¡Asegura tu plaza!</h1>
+                            <BookingForm tour={tour} />
+                        </div>
+                    </>
+                :   <>
+                        <h1>¡Accede a tu cuenta o regístrate para reservar!</h1>
+                        <LoginForm/>
+                    </>
+                }
                 <AnswerCard question={QUESTION} answer={ANSWER} imgpath={'answer3.png'} style={{"width":"100%"}}/>
+
             </aside>
         </div>
     )
