@@ -1,4 +1,5 @@
 const PORT = 8000;
+const BASE_URL = `http://localhost:${PORT}/`;
 const BASE_API_URL = `http://localhost:${PORT}/api/`;
 const BASE_IMG_DIRECTORY =`http://localhost:${PORT}/images/`;
 
@@ -22,6 +23,8 @@ const GET_USER_LOGGED = BASE_API_URL + "me";
 const GET_GUIDE_DETAILS = BASE_API_URL + "guidedetails/";
 const GET_GUIDES_LATEST = BASE_API_URL + "latestguides";
 const GET_CATEGORY_ALL = BASE_API_URL + "categorieslist";
+const GET_CURRENT_USER = BASE_API_URL + "me";
+const GET_USER_BOOKINGS = BASE_API_URL + "bookingsperuser/";
 
 /* Endpoints - Métodos POST */
 const POST_TOUR_NEW = BASE_API_URL + "newtour";
@@ -30,11 +33,17 @@ const POST_USER_NEW = BASE_API_URL + "register";
 const POST_USER_IMG = BASE_API_URL + "uploadguideimage/";
 const POST_BOOKING_NEW = BASE_API_URL + "newbooking";
 
+/* Endpoints - Métodos PUT-PATCH */
+const PUT_USER_UPDATE = BASE_API_URL + "userupdate/";
+const PATCH_BOOKING_CANCEL = BASE_API_URL + "cancelbooking/";
+
+
 export {
     LOGIN_URL,
     SESSION_URL,
     PRIVATE_URL,
     ADMIN_URL,
+    BASE_URL,
     GET_CITIES_ALL,
     GET_CITIES_TOP,
     GET_TOUR_DETAILS,
@@ -51,7 +60,11 @@ export {
     STATIC_FOLDER,
     CITIES_FOLDER,
     GUIDES_FOLDER,
-    TOURS_FOLDER
+    TOURS_FOLDER,
+    GET_CURRENT_USER,
+    PUT_USER_UPDATE,
+    GET_USER_BOOKINGS,
+    PATCH_BOOKING_CANCEL
 };
 
 
