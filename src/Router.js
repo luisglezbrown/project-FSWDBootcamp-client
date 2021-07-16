@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./hooks/ScrollToTop";
 
+import PrivateRoute from "./pages/PrivateRoute";
 import Index from './pages/Index';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -32,8 +33,8 @@ export default function Router() {
                     <Route path='/accountcreated' component={AccountCreated} />
                     <Route path='/tourcreated' component={TourCreated} />
                     <Route path='/bookingcreated' component={BookingCreated} />
-                    <Route path='/newTour' component={NewTour} />
-                    <Route path='/myaccount' component={MyAccount} />
+                    <PrivateRoute path='/newTour'><NewTour /></PrivateRoute>
+                    <PrivateRoute path='/myaccount'><MyAccount /></PrivateRoute>
 
                     {/* TODO: <Route path='/dashboard' component={Dashboard}/>*/}
                     {/*<Route component={Error}/>*/} {/* TODO: Crear un componente de error */}           
