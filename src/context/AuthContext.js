@@ -1,4 +1,6 @@
-import { createContext, useState, useContext/* , useEffect */ } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
+import jwt_decode from "jwt-decode";
+
 // import { SESSION_URL } from "../config/config";
 
 const LoginContext = createContext(null);
@@ -28,7 +30,8 @@ export default function AuthContext({children}) {
     const setToken = token => localStorage.setItem("TOKEN_KEY", token);
     const removeToken = () => localStorage.removeItem("TOKEN_KEY");
 
-    const isAdmin = () => loginUser?.role === "ADMIN";
+    const isGuide = () => loginUser?.roles.includes("ROLE_GUIDE");
+    const isUser = () => loginUser?.roles.includes("ROLE_USER");
 
     const signIn = (token, user) => {
         /**
@@ -64,48 +67,49 @@ export default function AuthContext({children}) {
     };
 
     //TODO: HE COMENTADO ESTO!!!
-    // useEffect(() => {
-    //     /**
-    //      * Al utilizar este componente en App.js, se montará en cuanto accedamos
-    //      * a la aplicación, ejecutando, por tanto, este useEffect. Útil cuando
-    //      * volvemos a la aplicación tras haber salido o haber cerrado el navegador.
-    //      * 
-    //      * Comprueba que existe un token en el localStorage y lo valida contra el servidor
-    //      * para añadir una capa de seguridad necesaria, ya que:
-    //      * 
-    //      * ¿Qué pasa si tengo un token guardado pero ha expirado?
-    //      * ¿Qué pasa si tengo un token válido pero han eliminado mi usuario de la BBDD?
-    //      * ¿Qué pasa si tengo un token válido pero me han cambiado los roles u otra información importante?
-    //      * 
-    //      * En ninguno de los casos debería poder acceder a zonas privadas de la web, por lo
-    //      * que una validación contra el servidor y actualización de la información es siempre necesaria.
-    //      */
+    useEffect(() => {
+        /**
+         * Al utilizar este componente en App.js, se montará en cuanto accedamos
+         * a la aplicación, ejecutando, por tanto, este useEffect. Útil cuando
+         * volvemos a la aplicación tras haber salido o haber cerrado el navegador.
+         * 
+         * Comprueba que existe un token en el localStorage y lo valida contra el servidor
+         * para añadir una capa de seguridad necesaria, ya que:
+         * 
+         * ¿Qué pasa si tengo un token guardado pero ha expirado?
+         * ¿Qué pasa si tengo un token válido pero han eliminado mi usuario de la BBDD?
+         * ¿Qué pasa si tengo un token válido pero me han cambiado los roles u otra información importante?
+         * 
+         * En ninguno de los casos debería poder acceder a zonas privadas de la web, por lo
+         * que una validación contra el servidor y actualización de la información es siempre necesaria.
+         */
         
-    //     const options = {
-    //         headers: getAuthHeaders()
-    //     };
+        const options = {
+            headers: getAuthHeaders()
+        };
 
-    //     // Si ni siquiera hay token guardado, no hacemos la petición
-    //     getToken() && fetch(SESSION_URL, options)
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error(response.statusText);
-    //             }
-    //             return response.json();
-    //         })
-    //         .then(data => signIn(data.token, data.user)) // Token e info renovada
-    //         .catch(() => signOut()); // Limpiamos la sesión
+        // Si ni siquiera hay token guardado, no hacemos la petición
+        getToken() && fetch("http://localhost:8000/api/token_check", options)
+            .then(response => {
+                if (response.status !== 202) {
+                    throw new Error("Problema al comprobar la identidad");
+                }
+                return response.json();
+            })
+            .then(data => signIn(getToken(), jwt_decode(getToken()))) // Token e info renovada
+            .catch(() => signOut()); // Limpiamos la sesión
         
-    //     // El siguiente comentario (eslint...) es para deshabilitar el warning de "missing dependencies"
-    //     // ya que no necesitamos incluir las dependencias que nos pide en este caso.
+        // El siguiente comentario (eslint...) es para deshabilitar el warning de "missing dependencies"
+        // ya que no necesitamos incluir las dependencias que nos pide en este caso.
 
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    //     }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
 
     const contextValue = {
         loginUser,
         isAuthenticated,
-        isAdmin,
+        isGuide,
+        isUser,
         getToken,
         signIn,
         signOut,
