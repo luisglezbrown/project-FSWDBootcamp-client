@@ -20,12 +20,12 @@ export default function HeroImage() {
         .then(data => setCities(data.results))
     }, [])
 
-    console.log('cityTarget:'+cityTarget)
+    // console.log('cityTarget:'+cityTarget)
 
     let results = cities.filter(city => city.name === cityTarget);
     let cityId = (results.length > 0) ? results[0].id : null;
 
-    console.log('cityId:'+cityId)
+    // console.log('cityId:'+cityId)
 
     return (
         <div className='hero-container'>
