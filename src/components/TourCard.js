@@ -9,7 +9,7 @@ export default function TourCard({ tour }) {
     return (
         <div className="tour-container">
             <div className="tour-image" style={INLINE_STYLE}>    
-            {tour?.categories.map(category => <span className='category'>#{category?.tag}</span>)}
+            {tour?.categories.map(category => <span className='category' key={category.id}>#{category?.tag}</span>)}
             </div>
             
             <div className="tour-text">
