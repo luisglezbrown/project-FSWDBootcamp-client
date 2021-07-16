@@ -2,17 +2,26 @@ import { useHistory } from "react-router";
 import { useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { POST_BOOKING_NEW } from '../config/config';
+import { useAuthContext } from "../context/AuthContext";
+import jwt_decode from "jwt-decode";
 
 import './style/BookingForm.css'
 
 
 export default function Form({tour}){
+    const {getToken} = useAuthContext();
     const history = useHistory();
-    let {id} = useParams();
-// TODO: Quitar el userId Harcodeado
-    const initialFormState = {userId: "31", tourId: id, pax: "", date:"", status: "active"};
-    const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
     
+    let {id} = useParams();
+    let token = getToken();
+    let tokenDecoded = jwt_decode(token);
+
+    let currentDate = new Date();
+    let today = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getUTCDate()}`
+
+    const initialFormState = {userId: tokenDecoded.user.id, tourId: id, pax: "", date:""};
+    const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
+    console.log(form)
     async function fetchNewBooking() {
         const options = {
             method: "POST",
@@ -48,15 +57,15 @@ export default function Form({tour}){
 
     return(
         <form onSubmit={handleSubmit} className="form-container">
-            <div class="form-group">
-                <label class="form-label">¿Qué día?</label>
+            <div className="form-group">
+                <label className="form-label">¿Qué día?</label>
                 <small>Tour disponible: {tour?.weekDays?.map(day => {if (day==="1") {return "lunes "} else if (day==="2") {return "martes "} else if (day==="3") {return "miércoles "} else if(day==="4") {return "jueves "} else if (day==="5") {return "viernes "} else if (day==="6") {return "sábados "} else if (day==="0") {return "domingos "} return "."})}</small>
-                <input onChange={handleInputChange} value={form.date} name="date" type="date" placeholder="¿Qué día?" className="form-control" /* required *//>
+                <input onChange={handleInputChange} value={form.date} name="date" type="date" placeholder="¿Qué día?" className="form-control" min={today} required/>
 			</div>
             
-            <div class="form-group">
-                <label class="form-label">¿Cuántos sois?</label>
-                <input onChange={handleInputChange} value={form.pax} name="pax" type="number" placeholder="Indica el total de personas" className="form-control" required/>
+            <div className="form-group">
+                <label className="form-label">¿Cuántos sois?</label>
+                <input onChange={handleInputChange} value={form.pax} name="pax" type="number" placeholder="Indica el total de personas" className="form-control" min="1" required/>
 			</div>
 
             <input type="submit" value="RESERVAR" className="submit-btn"/>
