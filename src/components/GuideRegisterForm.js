@@ -44,7 +44,7 @@ export default function GuideRegisterForm() {
         console.log(dataImage);
 
         if(response.status >= 200 && response.status < 300) {
-            history.push("/accountcreated")
+            history.push("/accountcreated?role=guide")
         } else {
             alert("Login incorrecto");
         }
