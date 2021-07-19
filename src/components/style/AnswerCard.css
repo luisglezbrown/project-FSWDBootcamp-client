@@ -1,25 +1,20 @@
 .answer-card {
-    width: 30%;
-    min-width: 200px;
+    height: auto;
     text-align: center;
-    margin: 2rem 0;
 }
 
 .answer-card img {
+    width: calc(6rem + 1.5vw);
     margin: 1.5rem;
 }
 
 .answer-card h1 {
-    color: #4d4d4d;
-    text-shadow: 2px 2px 1px #999;
-    margin: 1rem;
-    height: 10%;
+  font-size: calc(1rem + 0.5vw);
 }
 
 .answer-card p {
-    color: #4d4d4d;
     font-family: 'Exo';
-    font-size: 1.1rem;
-    word-spacing: 2px;
+    font-size: calc(1rem + 0.1vw);
+    word-spacing: 3px;
     text-align: justify;
 }
