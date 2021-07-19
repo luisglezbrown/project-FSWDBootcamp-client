@@ -4,8 +4,6 @@ import { GET_CITIES_TOP } from '../config/config';
 
 import CityCard from './CityCard';
 
-import './style/TopDestinations.css'
-
 export default function TopDestinations() {
 
     const [topCities, setTopCities] = useState([])
@@ -22,7 +20,7 @@ export default function TopDestinations() {
                 <h1>Los destinos más buscados</h1>
                 <Link to='/allCities' className="see-more">ver todos</Link>
             </header>
-            <div className='cards-container'>
+            <div className='grid cardsx4'>
                 {topCities.map(city => <CityCard city={city} key={city.id}/>)}
             </div>
         </section>
