@@ -1,15 +1,15 @@
 import AuthContext from "./context/AuthContext";
 import Router from './Router'
-import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <div id="content-wrap">
       <AuthContext>
+
         <Router />
-        <Footer />
+
       </AuthContext>
-    </>
+    </div>
   );
 }
 
