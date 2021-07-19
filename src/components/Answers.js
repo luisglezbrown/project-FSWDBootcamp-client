@@ -19,8 +19,10 @@ export default function Answers() {
     ];
 
     return (
-        <section className="answers-container">
-            {FAQ.map(question => <AnswerCard question={question.question} answer={question.answer} imgpath={question.imgPath} key={question.question}/>)}
+        <section className='answers-container'>
+            <div className="grid cardsx4 column-gap-3vw">
+                {FAQ.map(question => <AnswerCard question={question.question} answer={question.answer} imgpath={question.imgPath} key={question.question}/>)}
+            </div>
         </section>
     )
 }
