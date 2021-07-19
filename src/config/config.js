@@ -1,7 +1,7 @@
 const PORT = 8000;
-const BASE_URL = `http://localhost:${PORT}/`;
-const BASE_API_URL = `http://localhost:${PORT}/api/`;
-const BASE_IMG_DIRECTORY =`http://localhost:${PORT}/images/`;
+const BASE_URL = "http://localhost:"+PORT+"/";
+const BASE_API_URL = "http://localhost:"+PORT+"/api/";
+const BASE_IMG_DIRECTORY = "http://localhost:"+PORT+"/images/";
 
 const LOGIN_URL = BASE_API_URL + "login_check";
 const SESSION_URL = BASE_API_URL + "session";
@@ -25,6 +25,8 @@ const GET_GUIDES_LATEST = BASE_API_URL + "latestguides";
 const GET_CATEGORY_ALL = BASE_API_URL + "categorieslist";
 const GET_CURRENT_USER = BASE_API_URL + "me";
 const GET_USER_BOOKINGS = BASE_API_URL + "bookingsperuser/";
+const GET_TOURS_BY_GUIDE = BASE_API_URL + "toursbyguide/";
+const GET_BOOKINGS_BY_TOUR = BASE_API_URL + "bookingsbytour/";
 
 /* Endpoints - Métodos POST */
 const POST_TOUR_NEW = BASE_API_URL + "newtour";
@@ -35,7 +37,13 @@ const POST_BOOKING_NEW = BASE_API_URL + "newbooking";
 
 /* Endpoints - Métodos PUT-PATCH */
 const PUT_USER_UPDATE = BASE_API_URL + "userupdate/";
-const PATCH_BOOKING_CANCEL = BASE_API_URL + "cancelbooking/";
+const PUT_TOUR_UPDATE = BASE_API_URL + "tourupdate/";
+
+
+/* Endpoints - Métodos DELETE */
+const DEL_BOOKING_CANCEL = BASE_API_URL + "cancelbooking/";
+const DEL_TOUR_CANCEL = BASE_API_URL + "deletetour/";
+const DELETE_USER = BASE_API_URL + "deleteuser/";
 
 
 export {
@@ -64,7 +72,12 @@ export {
     GET_CURRENT_USER,
     PUT_USER_UPDATE,
     GET_USER_BOOKINGS,
-    PATCH_BOOKING_CANCEL
+    DEL_BOOKING_CANCEL,
+    DEL_TOUR_CANCEL,
+    GET_TOURS_BY_GUIDE,
+    GET_BOOKINGS_BY_TOUR,
+    PUT_TOUR_UPDATE,
+    DELETE_USER
 };
 
 
