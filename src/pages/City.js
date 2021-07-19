@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GET_TOURS_BY_CITY, CITIES_FOLDER } from '../config/config';
 
-import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
 import TourCard from "../components/TourCard";
 
@@ -29,7 +28,6 @@ export default function City() {
 
     return (
         <>
-            <Navbar />
             <ResultsBanner header={HEADER_CONTENT} text={TEXT_CONTENT} style={INLINE_STYLE}/>
 
             <div className='section-container'>

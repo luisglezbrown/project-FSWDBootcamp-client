@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GET_TOUR_DETAILS } from '../config/config';
 
-import Navbar from '../components/Navbar';
 import TourDetails from '../components/TourDetails';
 
 export default function Tour() {
@@ -22,7 +21,6 @@ export default function Tour() {
 
     return (
         <>
-            <Navbar />
             <TourDetails guide={guide} tour={tour}/>
         </>
     )

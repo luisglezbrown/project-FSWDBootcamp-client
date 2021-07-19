@@ -2,7 +2,6 @@ import { Redirect } from "react-router";
 import { useAuthContext } from "../context/AuthContext";
 import { Link } from 'react-router-dom';
 
-import Navbar from '../components/Navbar';
 import LoginForm from '../components/LoginForm';
 
 export default function Login() {
@@ -11,7 +10,6 @@ export default function Login() {
 
     return isAuthenticated ? <Redirect to="/myaccount" /> : (
         <>
-            <Navbar />
             <section className="login-container">
                 <div className="login-left">
                     <h1>¡Nos encanta volver a verte!</h1>

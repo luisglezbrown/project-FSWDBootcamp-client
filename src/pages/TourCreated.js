@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar'
 
 export default function TourCreated() {
 
@@ -7,7 +6,6 @@ export default function TourCreated() {
 
     return (
         <>
-            <Navbar />
             <section className='h-90vh flex' style={{background: `linear-gradient(0deg, #ffcc00 0%, rgba(255,204,0,0) 55%)`}}>
                 <div className='my-3 center'>
                     <h1 className='header grey-shadow'>¡El tour ya está disponible para reservar!</h1>

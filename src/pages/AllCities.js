@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import ResultsBanner from "../components/ResultsBanner";
 import CityCard from "../components/CityCard";
 import { useEffect, useState } from "react";
@@ -19,14 +18,13 @@ export default function AllCities() {
 
     return (
         <>
-            <Navbar />
             <ResultsBanner header={HEADER_CONTENT} text={TEXT_CONTENT} />
 
-            <div className='section-container'>
-                <div className='cards-container'>
+            <section className='section-container'>
+                <div className='grid 4xrow'>
                     {cities.results?.map(city => <CityCard city={city} key={city.id}/>)}
                 </div>
-            </div>
+            </section>
         </>
     )
 }
