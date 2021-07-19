@@ -1,40 +1,23 @@
 nav {
-    box-sizing: border-box;
-    background-color: whitesmoke;
-    height: 65px;
-    width: 100%;
-    padding: 1rem 10%;
     position: fixed;
     top: 0;
+    z-index: 100;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 2px 0 5px #4D4D4D;
-    z-index: 100;
+
+    box-sizing: border-box;
+    height: 7vh;
+    min-height: 50px;
+    width: 100%;
+
+    background-color: whitesmoke;
+    box-shadow: 2px 0 5px var(--dark-grey);
+
+    padding: 1rem 10%;
 }
 
 .logo {
-    height: 40px;
-}
-
-.button-container {
-    min-width: 250px;
-}
-
-.btn {
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.btn.register {
-    margin: 0 2rem;
-    color: #4D4D4D;
-}
-
-.btn.login {
-    background-color: #FFCC00;
-    padding: 0.5rem 2rem;
-    border-radius: 0.5rem;
-    color: #4D4D4D;
-    box-shadow: 2px 2px 2px #4D4D4D;
+    height: 2rem;
 }

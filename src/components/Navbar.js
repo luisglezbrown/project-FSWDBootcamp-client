@@ -14,13 +14,13 @@ export default function Navbar() {
 
             {
                 isAuthenticated
-                ?   <div className='button-container'>
-                        <Link to='/' onClick={signOut} className="btn register"> cerrar sesión</Link>
-                        <Link to='/myaccount' className="btn login"> mi cuenta</Link>
+                ?   <div>
+                        <Link to='/' onClick={signOut} className="btn-no-bg"> cerrar sesión</Link>
+                        <Link to='/myaccount' className="btn-yellow"> mi cuenta</Link>
                     </div> 
-                :   <div className='button-container'>
-                        <Link to='/newuser' className="btn register"> registro</Link>
-                        <Link to='/login' className="btn login"> acceso</Link>
+                :   <div>
+                        <Link to='/newuser' className="btn-no-bg"> registro</Link>
+                        <Link to='/login' className="btn-yellow"> acceso</Link>
                     </div>            
             }
         </nav>
