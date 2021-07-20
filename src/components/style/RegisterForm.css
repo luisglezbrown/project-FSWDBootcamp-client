@@ -1,59 +1,33 @@
 .register-container {
-    box-sizing: border-box;
-    width: 100%;
-    font-family: 'Exo', sans-serif;
-    font-size: large;
+   font-size: calc(1rem + 0.25vw);
     text-align: center;
-    color: #4d4d4d;
-    background: rgb(255,255,255);
     background: linear-gradient(195deg, #ffcc0090 7%, #ffffff94 30%, #fff 100%); 
-    padding-top: 2rem;
+    padding-top: calc(1rem + 0.5vh);
 }
 
 .register-form-container {
     text-align: left;
     margin: 2rem auto 5rem;
-    width: 40%;
-}
-
-.register-form-container .form-group {
-    margin: 1rem auto 1rem;
+    min-width: 350px;
+    width: calc(300px + 15vw);
 }
 
 .register-container h1 {
     font-family: 'Fredoka One', sans-serif;
     font-size: 3rem;
-    color: #4d4d4d;
+    color: var(--dark-grey);
     text-shadow: 3px 3px 3px #fafafa;
-    margin-top: 2rem;
 }
 
-fieldset {
-    display: block;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    border: 1px solid #ffcc00;
-    border-radius: 1rem;
+.register-container p {
+    margin: 1rem 1rem;
 }
-
-legend {
-    padding: 0 2rem;
-    color: #4d4d4d;
-    font-weight: bolder;
-    background-color: #ffcc00;
-    border-radius: 1rem;
-}
-
 
 form small {
     display: block;
     margin: 0 0 0.5rem 1rem;
 }
 
-.check input {
-    display: inline;
-    width: auto;
-}
 
 .check {
     display: inline-block;

@@ -31,7 +31,6 @@ export default function City() {
             <ResultsBanner header={HEADER_CONTENT} text={TEXT_CONTENT} style={INLINE_STYLE}/>
 
             <div className='section-container'>
-                {/*TODO: <Filters }> */}<p>Bloque de filtros</p>
                 <div className='cards-container'>
                     {tours?.map(tour => <TourCard tour={tour} key={tour.id}/>)}
                 </div>

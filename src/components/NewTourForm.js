@@ -39,7 +39,6 @@ export default function NewTourForm() {
     let token = getToken();
     let tokenDecoded = jwt_decode(token);
 
-    //TODO: Gestionar el userId, debe pillarlo del token
     const initialFormState = {userId: tokenDecoded.user.id, cityId: "", title: "", duration: Number(), highlight: "", startingTime: "", meetingPoint: "", description: ""};
     const [form, 
         handleInputChange, 
@@ -153,7 +152,7 @@ export default function NewTourForm() {
                         <textarea onChange={handleInputChange} value={form.meetingPoint} name="meetingPoint" type="text" placeholder="Place Charles de Gaulle, justo en la esquina frente al McDonald's. Me reconoceréis por el paraguas verde :)" required className="meeting-point"/>
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group grid">
                         <label htmlFor="categories" className="form-label">Categorías</label>
                         <small>Selecciona aquellas categorías para tu tour.</small>
                     </div>

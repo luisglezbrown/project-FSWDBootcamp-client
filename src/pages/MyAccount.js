@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import { GET_CURRENT_USER, GET_USER_BOOKINGS } from '../config/config';
-import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+
 import UserBookingsTable from "../components/UserBookingsTable";
-// import EditDetailsForm from "../components/EditDetailsForm";
 import GuideBoard from "../components/GuideBoard";
 
 export default function MyAccount() {
@@ -39,16 +39,28 @@ export default function MyAccount() {
     console.log(userBookings);
 
     return (
-        <>
-            <h1>¡Hola, <b>{userName}</b>!</h1>
+        <section className="section-container">
 
-            {isGuide() && <GuideBoard/>}
-            {userBookings && <UserBookingsTable bookings={userBookings}/>}
-            <Link to={{
+            <div className="flex space-between pt-3">
+
+                <h1 className="header-text text-shadow">¡Hola, <b>{userName}</b>!</h1>
+                <Link to={{
                     pathname: "/useredit",
                     state: currentUserInfo,
-                }}
-            > Editar </Link>
-        </>
+                }} className='btn-yellow'> Editar perfil</Link>
+
+            </div>
+
+            <div className="grid dashboard">
+
+                {isGuide()
+                && <GuideBoard/>}
+
+                {userBookings 
+                && <UserBookingsTable bookings={userBookings}/>}
+
+            </div>
+
+        </section>
     )
 }

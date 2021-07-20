@@ -50,12 +50,6 @@ export default function RegisterForm() {
                         <label className="form-label">Contraseña</label>
                         <input onChange={handleInputChange} value={form.password} name="password" type="password" placeholder="******" className="form-control" required/>
                     </div>
-
-                    {/* <div className="form-group">
-                        <label className="form-label">Repite la contraseña</label>
-                        <input onChange={handleInputChange} value={form.password} name="password" type="password" placeholder="******" className="form-control" required/>
-                    </div>
-                TODO: ¿Cómo gestionar la validación de contraseñas? */}
                 </fieldset>
 
                 <fieldset> 

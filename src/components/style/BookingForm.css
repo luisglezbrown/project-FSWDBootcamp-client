@@ -4,7 +4,7 @@
 	background-color: whitesmoke;
 	border-radius: 1rem;
 	border: 10px dashed #ffcc00;
-	padding: 1rem 4rem;
+	padding: 1rem calc(1rem + 1vw);
 }
 
 form .submit-btn:hover, form .submit-btn:focus {
@@ -66,6 +66,7 @@ form .submit-btn {
 	box-shadow: 3px 3px 0 #4d4d4d;
 }
 
+
 textarea {
 	height: 15rem;
 	line-height: normal;
@@ -73,7 +74,6 @@ textarea {
 	resize: none;
 	font-family: 'Exo';
 }
-
 .meeting-point {
 	height: 5rem;
 }
