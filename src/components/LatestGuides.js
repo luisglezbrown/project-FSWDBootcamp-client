@@ -2,9 +2,6 @@ import LastGuideCard from "./LastGuideCard";
 import { useEffect, useState } from "react";
 import { GET_GUIDES_LATEST } from '../config/config';
 
-
-import './style/LatestGuides.css'
-
 export default function LatestGuides() {
 
     const [latestGuides, setLatestGuides] = useState([])
@@ -15,15 +12,13 @@ export default function LatestGuides() {
         .then(data => setLatestGuides(data.results))
     }, [])
 
-    let guides = latestGuides;
-
     return (
-        <section className='guides-section-container'>
-            <header className='guides-header-container'>
+        <section className='section-container'>
+            <header className='header-container'>
                 <h1>LocalZ recién llegados</h1>
             </header>
-            <div className='guides-cards-container'>
-                {guides.map(guide => <LastGuideCard guide={guide} key={guide.id}/>)}
+            <div className='grid cardsx4'>
+                {latestGuides.map(guide => <LastGuideCard guide={guide} key={guide.id}/>)}
             </div>
         </section>
     )
