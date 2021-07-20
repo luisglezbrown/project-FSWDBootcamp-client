@@ -10,11 +10,11 @@ export default function Login() {
 
     return isAuthenticated ? <Redirect to="/myaccount" /> : (
         <>
-            <section className="login-container">
+            <section className="login-container grid">
                 <div className="login-left">
                     <h1>¡Nos encanta volver a verte!</h1>
                     <p>Introduce tu email y contraseña para acceder al área privada</p>
-                    <Link to='/newuser' className="secondary-action">¿No estás registrado? Crea una cuenta</Link>
+                    <Link to='/newuser'>¿No estás registrado? Crea una cuenta</Link>
                 </div>
                 <div className="login-right">
                     <LoginForm />
