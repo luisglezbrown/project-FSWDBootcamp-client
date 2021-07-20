@@ -7,8 +7,8 @@
     margin-bottom: 5rem;
 
     border-radius: 10px;
-    border-left: 10px solid #ffcc00;
-    box-shadow: 2px 2px 5px #4D4D4D;
+    border-left: 10px solid var(--yellow);
+    box-shadow: 2px 2px 5px var(--dark-grey);
     overflow: hidden;
 }
 
@@ -16,36 +16,24 @@
     background-image: linear-gradient(90deg, rgba(255,255,255,0.022829200039390707) 80%, rgba(250,250,250,1) 100%), url("http://localhost:8000/images/static/become1.jpg");
     background-position: 30% 20%;
     background-size: cover;
-    width: 100%;
+    width: 60vw;
 }
 
 .become-text {
     background-color: #fafafa;
-    width: 55%;
+    width: 70vw;
     text-align: right;
-    padding: 2rem;
+    padding: calc(1rem + 1vw);
 }
 
 .become-text h1{
-    font: 3rem 'Fredoka One', sans-serif;
-    color: #ffcc00;
+    font-size: calc(2rem + 1.5vw);
+    color: var(--yellow);
     margin: 0;
-    text-shadow: 2px 2px 2px #4d4d4d;
+    text-shadow: 2px 2px 2px var(--dark-grey);
 }
 
 .become-text p{
-    font: normal 1rem 'Exo', sans-serif;
-    color: #4d4d4d;
-    letter-spacing: 1px;
-}
-
-.become-text a{
-    display: inline-block;
-    font-weight: bold;
-    text-decoration: none;
-    background-color: #FFCC00;
-    padding: 0.5rem 2rem;
-    border-radius: 0.5rem;
-    color: #4D4D4D;
-    box-shadow: 2px 2px 2px #4D4D4D;
+    color: var(--dark-grey);
+    letter-spacing: 0.1vw;
 }
