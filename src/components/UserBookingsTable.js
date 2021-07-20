@@ -20,15 +20,20 @@ export default function UserBookingTable({bookings}) {
 
     return (
         !hasBookings
-        ? <h2>Oh! No has reservado ningún tour</h2>
-        : <><h2>Tus reservas</h2>
+        ? <h2 className='header-text text-shadow'>💔 Oh! No tienes reservas</h2>
+        : <div className='yellow-card'>
+            <h2 className='header-container-inverted'>Tus reservas</h2>
 
             {!hasActiveBookings 
-            ?<h2>No tienes ninguna reserva activa</h2>
-            :<table> 
+            ? <div className='result-card'>
+                <h2>No tienes ninguna reserva activa</h2>
+            </div>
+            
+            :<div className='result-card'>
+                <table> 
                 <thead>
                     <tr>
-                        <th colSpan="4">Tus próximas reservas</th>
+                        <th colSpan="4" className='table-header'>Tus próximas reservas</th>
                     </tr>
                     <tr>
                         <th>Ciudad</th>
@@ -46,10 +51,10 @@ export default function UserBookingTable({bookings}) {
                         <td><BookingCancel bookingId={booking?.id}/></td>
                     </tr>)}
                 </tbody>
-            </table>}
+            </table></div>}
             
             {hasCancelledBookings
-            &&<table>
+            &&<div className='result-card'><table>
                 <thead>
                     <tr>
                         <th colSpan="4">Tus reservas canceladas</th>
@@ -58,7 +63,6 @@ export default function UserBookingTable({bookings}) {
                         <th>Ciudad</th>
                         <th>Tour</th>
                         <th>Fecha</th>
-                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,11 +71,10 @@ export default function UserBookingTable({bookings}) {
                         <td>{booking.city}</td>
                         <td>{booking.tourTitle}</td>
                         <td>{dateFormat(booking?.date)}</td>
-                        <td>{booking?.id}</td>
                     </tr>)}
                 </tbody>
-            </table>}
+            </table></div>}
 
-        </>
+        </div>
     )
 }
