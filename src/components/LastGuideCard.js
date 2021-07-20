@@ -10,7 +10,6 @@ export default function LastGuideCard({ guide }) {
             <div>
                 <img src={GUIDES_FOLDER + guide.imgpath} alt={`Vista de ${guide.name}`} className="guide-card-img" />
                 <h3 className="guide-card-name">{guide.name}</h3>
-                {/* <p className="guide-card-city">Ofrece tours en {guide.city}</p> */}
                 <p className="guide-card-about">" {guide.shortDesc} "</p>
             </div>
         </Link>
