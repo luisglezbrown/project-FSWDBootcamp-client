@@ -52,27 +52,8 @@ export default function GuideRegisterForm() {
 
     return (
 
-            <form onSubmit={handleSubmit} className="guide-register-form-container">
-                <fieldset className="w20"> 
-                    <legend>Tus datos de acceso:</legend> 
-                    <div className="form-group">
-                        <label htmlFor="email" className="form-label">Email</label>
-                        <input onChange={handleInputChange} value={form.email} name="email" type="email" id="email" placeholder="usuario@tuemail.com" className="form-control" required/>
-                    </div>
-                    
-                    <div className="form-group">
-                        <label htmlFor="password" className="form-label">Contraseña</label>
-                        <input onChange={handleInputChange} value={form.password} name="password" type="password" id="password" placeholder="******" className="form-control" required/>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="repeat-password" className="form-label">Repite la contraseña</label>
-                        <input onChange={handleInputChange} value={form.password} name="password" type="password" id="repeat-password" placeholder="******" className="form-control" required/>
-                    </div>
-                {/* TODO: ¿Cómo gestionar la validación de contraseñas? */}
-                </fieldset>
-
-                <fieldset className="w20"> 
+            <form onSubmit={handleSubmit} className="guide-register-form-container grid cardsx2">
+                <fieldset> 
                     <legend>Tus datos personales:</legend> 
                     <div className="form-group">
                         <label htmlFor="name" className="form-label">Nombre</label>
@@ -90,7 +71,7 @@ export default function GuideRegisterForm() {
                     </div>
                 </fieldset>
 
-                <fieldset className="w40"> 
+                <fieldset> 
                     <legend>Sobre ti:</legend> 
                     <div className="form-group">
                         <label htmlFor="shortDesc" className="form-label">Resumen</label>
@@ -108,7 +89,22 @@ export default function GuideRegisterForm() {
                     </div>
                 </fieldset>
 
-                <input type="submit" value="Crear cuenta" className="submit-btn"/>
+                <fieldset> 
+                    <legend>Tus datos de acceso:</legend> 
+                    <div className="form-group">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input onChange={handleInputChange} value={form.email} name="email" type="email" id="email" placeholder="usuario@tuemail.com" className="form-control" required/>
+                    </div>
+                    
+                    <div className="form-group">
+                        <label htmlFor="password" className="form-label">Contraseña</label>
+                        <input onChange={handleInputChange} value={form.password} name="password" type="password" id="password" placeholder="******" className="form-control" required/>
+                    </div>
+                    
+                    <input type="submit" value="Crear cuenta" className="submit-btn"/>
+
+                </fieldset>
+
 
             </form>
 
