@@ -40,7 +40,7 @@ export default function GuideToursTable({tourId}) {
         ?<table>
             <thead>
                 <tr>
-                    <th colSpan="4">Tus próximas reservas</th>
+                    <th colSpan="4" className='table-header'>Tus próximas reservas</th>
                 </tr>
                 <tr>
                     <th>Fecha</th>
@@ -59,6 +59,6 @@ export default function GuideToursTable({tourId}) {
                 </tr>)}
             </tbody>
         </table>
-        :<h2>Este tour aún no tiene reservas</h2>
+        :<h2 className='center yellow'>Este tour aún no tiene reservas</h2>
     )
 }
