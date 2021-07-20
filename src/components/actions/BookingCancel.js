@@ -31,7 +31,7 @@ export default function BookingCancel({bookingId}) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="submit" value="Cancelar"/>
+            <input type="submit" value="Cancelar" className='btn-cancel'/>
         </form>
     )
 }
