@@ -8,7 +8,6 @@ import GuideToursTable from './GuideToursTable';
 import { GET_TOURS_BY_GUIDE } from "../config/config"
 
 export default function GuideBoard() {
-    // const INLINE_STYLE = {backgroundImage: `linear-gradient(270deg, #fafafa 0%, rgba(255,204,0,0) 10%), url(${TOURS_FOLDER + tour.imgpath})`};
     const {getToken} = useAuthContext();
     const token = getToken();
     const userId=jwt_decode(token).user.id;
@@ -24,29 +23,30 @@ export default function GuideBoard() {
         .then(response => response.json())
         .then(data => setTours(data));
         // eslint-disable-next-line
-    }, [userId]);
+    }, []);
 
     console.log(tours)
 
     return (
-        <>
-            <h2>Tus free-tours</h2>
-            {tours?.enabled?.map(tour => 
-                <ul key={tour.id}>
-                    <li>
-                        <h1>{tour?.title}</h1>
-                        <Link
-                            to={{
-                                pathname: "/touredit",
-                                state: tour,
-                            }}
-                            >
-                            Editar
-                        </Link>
-                    </li>
-                    <li><GuideToursTable tourId={tour.id}/></li>
-                </ul>
-            )}
-        </>
+        <div className='yellow-card'>
+            <h2 className='header-container-inverted flex space-between'>Tus free-tours <Link to="/newtour" className="btn-yellow">+</Link></h2>
+                <div className='section-container sub'>   
+                {tours?.enabled?.map(tour => 
+                    <div className='result-card' key={tour?.id}>
+                        <div className="flex space-between">
+                            <h2>{tour?.title}</h2>
+                            <Link
+                                className='btn-yellow'
+                                to={{
+                                    pathname: "/touredit",
+                                    state: tour,
+                                }}>Editar
+                            </Link>
+                        </div>
+                        <GuideToursTable tourId={tour.id}/>
+                    </div>
+                )}
+            </div> 
+        </div>
     )
 }
