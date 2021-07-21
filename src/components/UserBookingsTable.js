@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import BookingCancel from './actions/BookingCancel';
 
 export default function UserBookingTable({bookings}) {
-    console.log(bookings.totalBookings)
 
     const hasBookings = bookings.totalBookings > 0;
     const hasActiveBookings = bookings?.active[0] !== undefined;

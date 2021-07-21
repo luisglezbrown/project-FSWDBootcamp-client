@@ -14,8 +14,7 @@ export default function GuideRegisterForm() {
     const [image, setImage] = useState('');
 
     const handleImageUpload = e => setImage(e.target.files[0]);
-    console.log(image);
-
+    
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -27,8 +26,6 @@ export default function GuideRegisterForm() {
 
         const response = await fetch(POST_USER_NEW, options);
         const data = await response.json();
-        console.log(data);
-
 
         const formImage = new FormData();
         formImage.append("File", image);
@@ -40,8 +37,8 @@ export default function GuideRegisterForm() {
         }
 
         const responseImage = await fetch(POST_USER_IMG + data.id, optionsImage);
+        // eslint-disable-next-line
         const dataImage = await responseImage;
-        console.log(dataImage);
 
         if(response.status >= 200 && response.status < 300) {
             history.push("/accountcreated?role=guide")

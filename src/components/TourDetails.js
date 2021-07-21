@@ -9,10 +9,7 @@ import './style/TourDetails.css'
 
 export default function TourDetails({tour, guide}) {
     
-    const {isAuthenticated, loginUser} = useAuthContext();
-
-    console.log('loginUser: ');
-    console.log(loginUser);
+    const {isAuthenticated} = useAuthContext();
 
     const QUESTION = "¿Cuánto cuesta?";
     const ANSWER = "Tu localz lo dará todo por mostrarte su ciudad y al final del tour eliges cuánto cuesta en función de tu experiencia. ¡Free viene de \"libre\", no de gratis! Eres libre de dar la propina que consideres a tu Localz";

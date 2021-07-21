@@ -45,11 +45,10 @@ export default function NewTourForm() {
         handleCatCheckboxChange, 
         catCheckedState, 
         handleDaysCheckboxChange, 
-        daysCheckedState] = useForm(initialFormState, categoriesList, daysList);
-    console.log('form: ')
-    console.log(form);
+        daysCheckedState
+    ] = useForm(initialFormState, categoriesList, daysList);
 
-
+        
     /* Este bloque gestiona los cambios en la carga de imagen */
     const [image, setImage] = useState('');
     const handleImageUpload = e => setImage(e.target.files[0]);
@@ -79,8 +78,8 @@ export default function NewTourForm() {
         }
 
         const responseImage = await fetch(POST_TOUR_IMG + data.id, optionsImage);
+        // eslint-disable-next-line
         const dataImage = await responseImage;
-        console.log(dataImage);
 
         if(response.status >= 200 && response.status < 300) {
             history.push("/tourcreated")

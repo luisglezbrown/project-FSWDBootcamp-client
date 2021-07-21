@@ -25,7 +25,6 @@ export default function GuideBoard() {
         // eslint-disable-next-line
     }, []);
 
-    console.log(tours)
 
     return (
         <div className='yellow-card'>

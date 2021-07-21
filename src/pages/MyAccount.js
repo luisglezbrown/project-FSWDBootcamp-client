@@ -27,16 +27,14 @@ export default function MyAccount() {
         .then(response => response.json())
         .then(data => setUserBookings(data));
         // eslint-disable-next-line
-    }, [userId]);
+    }, []);
 
     useEffect(() => {
         fetch(GET_CURRENT_USER, headers)
         .then(response => response.json())
         .then(data => setCurrentUserInfo(data));
         // eslint-disable-next-line
-    }, [userId]);
-
-    console.log(userBookings);
+    }, []);
 
     return (
         <section className="section-container">

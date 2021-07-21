@@ -21,7 +21,7 @@ export default function Form({tour}){
 
     const initialFormState = {userId: tokenDecoded.user.id, tourId: id, pax: "", date:""};
     const [form, handleInputChange] = useForm(initialFormState); // Custom Hook
-    console.log(form)
+
     async function fetchNewBooking() {
         const options = {
             method: "POST",
@@ -29,8 +29,8 @@ export default function Form({tour}){
             body: JSON.stringify(form)
         }
         const response = await fetch(POST_BOOKING_NEW, options);
+        // eslint-disable-next-line
         const data = await response.json();
-        console.log(data);
 
         if(response.status >= 200 && response.status < 300) {
             history.push("/bookingcreated")
@@ -49,12 +49,6 @@ export default function Form({tour}){
         : fetchNewBooking()
     };
         
-    // console.log("tour: " + tour);
-    // console.log(tour);
-    console.log("form: " + form);
-    console.log(form);
-
-
     return(
         <form onSubmit={handleSubmit} className="form-container">
             <div className="form-group">

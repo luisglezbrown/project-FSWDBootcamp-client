@@ -29,8 +29,8 @@ export default function UserEdit() {
         }
 
         const response = await fetch(PUT_USER_UPDATE + id, options);
+        // eslint-disable-next-line
         const data = await response.json();
-        console.log(data);
 
         if(response.status >= 200 && response.status < 300) {
             alert("Datos actualizados correctamente");
